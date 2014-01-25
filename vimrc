@@ -36,7 +36,7 @@ set smartindent
 
 " Ignore compiled files
 set wildmenu
-set wildignore=*.o,*~,*.pyc
+set wildignore=*.o,*~,*.pyc,.git\*
 
 " Use mouse
 set mouse=a
@@ -56,7 +56,7 @@ set nofoldenable
 set foldlevel=1
 
 " Scroll before you get to the very end
-set scrolloff=3
+set scrolloff=5
 set sidescrolloff=3
 
 " Searching
@@ -67,26 +67,13 @@ set showmatch
 set hlsearch
 nnoremap <leader><space> :noh<cr>
 
-" Autoformatter (by AVP)
-" Only works with HTML right now
-" Press <leader>F to call the formatter, by default leader is ,
-function Formatter()
-  if &filetype == 'html'
-    :normal ggVGgJ
-    :%s/>\s*</>\r</g
-    :normal ggVG=
-  endif
-endfunction
-
-nnoremap <leader>F :call Formatter()<cr>
-
 " Automatically refreshes file
 set autoread
 
 " History
 set undolevels=1000
    
-" Movement improvement
+" Set long lines to be treated as multiple lines when soft wrapped
 nnoremap j gj
 nnoremap k gk
 
@@ -109,6 +96,10 @@ set showcmd
 
 " Syntastic
 silent! let g:syntastic_python_checkers = []
+
+" Swap lines
+nnoremap <c-up> ddkP
+nnoremap <c-down> ddp
 
 " Change color column color - this has to be at the end of the file
 highlight ColorColumn ctermbg=237 guibg=237
