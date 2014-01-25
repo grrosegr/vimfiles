@@ -59,6 +59,9 @@ set foldlevel=1
 set scrolloff=5
 set sidescrolloff=3
 
+" Use F2 as a paste toggle
+set pastetoggle=<F2>
+
 " Searching
 set ignorecase
 set smartcase
