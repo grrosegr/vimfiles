@@ -7,7 +7,7 @@ Installation
 ------------
 
 ```
-git clone https://github.com/aakpat6/vimfiles.git ~/.vim
+git clone https://github.com/avp/vimfiles.git ~/.vim
 cd ~/.vim
 ./install.sh
 ```
