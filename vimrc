@@ -10,7 +10,7 @@ let mapleader = ","
 
 " Line numbers (comment out "set relativenumber" if you want normal numbers)
 set number
-if exists('&relativenumber') 
+if exists('&relativenumber')
   set relativenumber
 endif
 
@@ -22,6 +22,9 @@ endif
 " Use to change colorscheme
 silent! colorscheme ir_black
 set background=dark
+
+" Highlight trailing whitespace.
+match ErrorMsg '\s\+\%#\@<!$'
 
 " ============================================================================
 " IMPORTANT OPTIONS
@@ -75,7 +78,7 @@ set autoread
 
 " History
 set undolevels=1000
-   
+
 " Set long lines to be treated as multiple lines when soft wrapped
 nnoremap j gj
 nnoremap k gk
@@ -93,6 +96,9 @@ set backspace=indent,eol,start
 
 " Useful metrics
 set ruler
+
+" More secure encryption
+set cryptmethod=blowfish
 
 " Enable filetype detection and syntax hilighting
 syntax on
