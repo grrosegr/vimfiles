@@ -7,24 +7,15 @@ call neobundle#rc(expand('~/.vim/bundle'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-NeoBundle 'spolu/dwm.vim'
-NeoBundle 'scrooloose/nerdcommenter'
-NeoBundle 'ervandew/supertab'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'beyondmarc/glsl.vim'
-NeoBundle 'terryma/vim-expand-region'
-
-filetype plugin indent on
-
-NeoBundleCheck
-
 " ============================================================================
 " CUSTOM CHANGES
 " ============================================================================
 
 " Use the , as a leader
 let mapleader = ","
+
+" Quick editing of vimrc
+nnoremap ,R :so ~/.vimrc<cr>
 
 " Line numbers (comment out "set relativenumber" if you want normal numbers)
 set number
@@ -61,6 +52,9 @@ set wildignore=*.o,*~,*.pyc,.git\*
 
 " Use mouse
 set mouse=a
+
+" Show title
+set title
 
 " Use semicolon instead of colon
 nnoremap ; :
@@ -114,6 +108,7 @@ set backspace=indent,eol,start
 
 " Useful metrics
 set ruler
+set noshowmode
 
 " More secure encryption
 set cryptmethod=blowfish
@@ -125,10 +120,20 @@ filetype plugin indent on
 " Show multicharacter commands as they are being typed
 set showcmd
 
-" Syntastic
-silent! let g:syntastic_python_checkers = []
+" ============================================================================
+" PLUGINS
+" ============================================================================
 
-" Vim expand region
-vmap v <Plug>(expand_region_expand)
-vmap <C-v> <Plug>(expand_region_shrink)
+NeoBundle 'spolu/dwm.vim'
+NeoBundle 'scrooloose/nerdcommenter'
+NeoBundle 'ervandew/supertab'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'beyondmarc/glsl.vim'
+NeoBundle 'terryma/vim-expand-region'
+NeoBundle 'maciakl/vim-neatstatus'
+
+NeoBundleCheck
+
+let g:NeatStatusLine_color_insert='guifg=#ffffff guibg=#ff0000 gui=bold ctermfg=2 ctermbg=0 cterm=bold'
 
