@@ -110,3 +110,7 @@ set showcmd
 " Syntastic
 silent! let g:syntastic_python_checkers = []
 
+" Vim expand region
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
+
