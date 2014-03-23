@@ -2,6 +2,8 @@
 *~
 *.swp
 
-bundle/
+bundle/*
+!bundle/neobundle.vim
+
 .neobundle/
 
