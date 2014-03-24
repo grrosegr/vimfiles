@@ -35,7 +35,7 @@ set background=dark
 " Highlight trailing whitespace.
 match ErrorMsg '\s\+\%#\@<!$'
 
-" Strip trailing whitespace with ,S
+" Strip trailing whitespace with <leader>S
 nnoremap <leader>S :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 " Delete trailing whitespace on save.
@@ -135,6 +135,7 @@ NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'ervandew/supertab'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'tpope/vim-surround'
+NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'beyondmarc/glsl.vim'
 NeoBundle 'terryma/vim-expand-region'
 NeoBundle 'maciakl/vim-neatstatus'
