@@ -15,7 +15,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 let mapleader = ","
 
 " Quick editing of vimrc
-nnoremap ,R :so ~/.vimrc<cr>
+nnoremap <silent> <leader>R :so ~/.vimrc<cr>
 
 " Line numbers (comment out "set relativenumber" if you want normal numbers)
 set number
@@ -34,6 +34,12 @@ set background=dark
 
 " Highlight trailing whitespace.
 match ErrorMsg '\s\+\%#\@<!$'
+
+" Strip trailing whitespace with ,S
+nnoremap <leader>S :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+
+" Delete trailing whitespace on save.
+autocmd FileType c,cpp,java autocmd BufWritePre * :%s/\s\+$//e
 
 " ============================================================================
 " IMPORTANT OPTIONS
