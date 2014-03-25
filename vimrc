@@ -36,7 +36,7 @@ set background=dark
 match ErrorMsg '\s\+\%#\@<!$'
 
 " Strip trailing whitespace with <leader>S
-nnoremap <leader>S :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+nnoremap <silent> <leader>S :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 " Delete trailing whitespace on save.
 autocmd FileType c,cpp,java autocmd BufWritePre * :%s/\s\+$//e
