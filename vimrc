@@ -138,6 +138,7 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'beyondmarc/glsl.vim'
 NeoBundle 'terryma/vim-expand-region'
+NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'maciakl/vim-neatstatus'
 
 NeoBundleCheck
