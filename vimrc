@@ -23,9 +23,9 @@ if exists('&relativenumber')
   set relativenumber
 endif
 
-" 80 character line guide
+" 80/100 character line guide
 if exists('&colorcolumn')
-  set colorcolumn=80
+  set colorcolumn=80,100
 endif
 
 " Use to change colorscheme
