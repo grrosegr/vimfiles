@@ -89,6 +89,7 @@ set smartcase
 set incsearch
 set showmatch
 set hlsearch
+set magic
 nnoremap <leader><space> :noh<cr>
 
 " Automatically refreshes file
