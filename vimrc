@@ -77,8 +77,8 @@ set nofoldenable
 set foldlevel=1
 
 " Scroll before you get to the very end
-set scrolloff=5
-set sidescrolloff=3
+set scrolloff=3
+set sidescrolloff=5
 
 " Use F2 as a paste toggle
 set pastetoggle=<F2>
