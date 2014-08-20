@@ -25,7 +25,7 @@ endif
 
 " 80/100 character line guide
 if exists('&colorcolumn')
-  set colorcolumn=80,100
+  set colorcolumn=80,100,120
 endif
 
 " Use to change colorscheme
