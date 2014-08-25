@@ -14,6 +14,9 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Use the , as a leader
 let mapleader = ","
 
+" Fast saving
+nmap <leader>w :w<cr>
+
 " Quick editing of vimrc
 nnoremap <silent> <leader>R :so ~/.vimrc<cr>
 
@@ -22,6 +25,9 @@ set number
 if exists('&relativenumber')
   set relativenumber
 endif
+
+" Set how many lines of history to remember
+set history=700
 
 " 80/100 character line guide
 if exists('&colorcolumn')
