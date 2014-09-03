@@ -47,6 +47,9 @@ nnoremap <silent> <leader>S :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl
 " Delete trailing whitespace on save.
 autocmd FileType c,cpp,java autocmd BufWritePre * :%s/\s\+$//e
 
+" Font for GUI vim
+set guifont=Inconsolata:h14
+
 " ============================================================================
 " IMPORTANT OPTIONS
 " ============================================================================
