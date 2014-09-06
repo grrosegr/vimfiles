@@ -149,6 +149,7 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'beyondmarc/glsl.vim'
 NeoBundle 'terryma/vim-expand-region'
 NeoBundle 'maciakl/vim-neatstatus'
+NeoBundle 'ahf/twelf-syntax'
 
 NeoBundleCheck
 
