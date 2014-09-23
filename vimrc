@@ -158,3 +158,8 @@ silent! let g:syntastic_python_checkers = []
 
 au FileType python setlocal shiftwidth=2 tabstop=2
 
+" Custom NERDCommenter filetypes
+let g:NERDCustomDelimiters = {
+  \ 'tutch': { 'left': '%{', 'right': '}%' }
+\ }
+
