@@ -89,8 +89,8 @@ set foldlevel=1
 set scrolloff=3
 set sidescrolloff=5
 
-" Use F2 as a paste toggle
-set pastetoggle=<F2>
+" Use F12 as a paste toggle
+set pastetoggle=<F12>
 
 " Searching
 set ignorecase
@@ -99,7 +99,7 @@ set incsearch
 set showmatch
 set hlsearch
 set magic
-nnoremap <leader><space> :noh<cr>
+nnoremap <silent> <leader><space> :noh<cr>
 
 " Automatically refreshes file
 set autoread
@@ -150,6 +150,8 @@ NeoBundle 'beyondmarc/glsl.vim'
 NeoBundle 'terryma/vim-expand-region'
 NeoBundle 'maciakl/vim-neatstatus'
 NeoBundle 'ahf/twelf-syntax'
+NeoBundle 'bitc/vim-hdevtools'
+NeoBundle 'dag/vim2hs'
 
 NeoBundleCheck
 
@@ -157,6 +159,11 @@ let g:NeatStatusLine_color_insert='guifg=#ffffff guibg=#ff0000 gui=bold ctermfg=
 silent! let g:syntastic_python_checkers = []
 
 au FileType python setlocal shiftwidth=2 tabstop=2
+
+" Haskell mappings
+au FileType haskell nnoremap <buffer> <silent> <F1> :HdevtoolsType<CR>
+au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
+au FileType haskell nnoremap <buffer> <silent> <F3> :HdevtoolsInfo<CR>
 
 " Custom NERDCommenter filetypes
 let g:NERDCustomDelimiters = {
