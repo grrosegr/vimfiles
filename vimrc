@@ -145,7 +145,6 @@ NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'ervandew/supertab'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'tpope/vim-surround'
-NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'beyondmarc/glsl.vim'
 NeoBundle 'terryma/vim-expand-region'
 NeoBundle 'maciakl/vim-neatstatus'
@@ -164,6 +163,7 @@ au FileType python setlocal shiftwidth=2 tabstop=2
 au FileType haskell nnoremap <buffer> <silent> <F1> :HdevtoolsType<CR>
 au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
 au FileType haskell nnoremap <buffer> <silent> <F3> :HdevtoolsInfo<CR>
+hi clear Conceal
 
 " Custom NERDCommenter filetypes
 let g:NERDCustomDelimiters = {
