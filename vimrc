@@ -160,16 +160,7 @@ NeoBundleCheck
 let g:NeatStatusLine_color_insert='guifg=#ffffff guibg=#ff0000 gui=bold ctermfg=2 ctermbg=0 cterm=bold'
 silent! let g:syntastic_python_checkers = []
 
-au FileType python setlocal shiftwidth=2 tabstop=2
-
 let g:SuperTabDefaultCompletionType = "context"
-
-" Haskell mappings
-au FileType haskell nnoremap <buffer> <silent> <F1> :HdevtoolsType<CR>
-au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
-au FileType haskell nnoremap <buffer> <silent> <F3> :HdevtoolsInfo<CR>
-au FileType haskell hi clear Conceal
-au FileType haskell setlocal omnifunc=necoghc#omnifunc
 
 " Custom NERDCommenter filetypes
 let g:NERDCustomDelimiters = {
