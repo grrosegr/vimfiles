@@ -164,6 +164,7 @@ let g:SuperTabDefaultCompletionType = "context"
 
 " Custom NERDCommenter filetypes
 let g:NERDCustomDelimiters = {
-  \ 'tutch': { 'left': '%{', 'right': '}%' }
+  \ 'tutch': { 'left': '%{', 'right': '}%' },
+  \ 'twelf': { 'left': '%{', 'right': '}%' }
 \ }
 
