@@ -151,6 +151,7 @@ NeoBundle 'maciakl/vim-neatstatus'
 NeoBundle 'ahf/twelf-syntax'
 NeoBundle 'bitc/vim-hdevtools'
 NeoBundle 'dag/vim2hs'
+NeoBundle 'travitch/hasksyn'
 NeoBundle 'eagletmt/neco-ghc'
 
 call neobundle#end()
