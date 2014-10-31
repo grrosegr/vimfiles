@@ -21,7 +21,7 @@ syn keyword twelfPercentKey %mode %infix %prefix %abbrev %postfix %name %freeze 
 
 syn keyword twelfType type
 syn match twelfPunct ":\|\.\|\<=\>"
-syn match twelfFVar "\<[A-Z_]\k*\>"  
+syn match twelfFVar "\<[A-Z_]\k*\>"
 syn keyword twelfSymbol -> <-
 syn match twelfDecl "^\s*[^A-Z_]\k*\s*:" contains=twelfPunct
 
@@ -38,19 +38,19 @@ syn match twelfParen "(\|)" contained
 syn region twelfParens start="(" end=")" transparent contains=ALL
 
 
-" Comments hilighting 
+" Comments hilighting
 "  single line, empty line comments
-syn match twelfComment  "% .*\|%%.*\|%$"
+syn match twelfComment "%%.*$"
 "  delimited comments, needs to contain itself to properly hilight nested
-"  comments 
-syn region twelfDelimitedComment  start="%{" end="}%" contains=twelfDelimitedComment 
+"  comments
+syn region twelfDelimitedComment  start="%{" end="}%" contains=twelfDelimitedComment
 
 " Assign coloration
-hi link twelfType              twelfTypeFace
-hi link twelfPercentKey        twelfPercentKeyFace
-hi link twelfComment           twelfCommentFace
-hi link twelfDelimitedComment  twelfCommentFace
-hi link twelfSymbol            twelfSymbolFace
+hi link twelfType              Type
+hi link twelfPercentKey        Keyword
+hi link twelfComment           Comment
+hi link twelfDelimitedComment  Comment
+hi link twelfSymbol            Symbol
 hi link twelfPunct             twelfPunctuationFace
 hi link twelfParen             twelfSymbolFace
 hi link twelfDecl              twelfDeclarationFace
@@ -62,7 +62,7 @@ hi link twelfSquare            twelfSquareFace
 " Indentation
 
 " Folds
-"syn region myFold start="%{" end="}%" transparent fold 
+"syn region myFold start="%{" end="}%" transparent fold
 "syn sync fromstart
 
 set foldmethod=syntax
