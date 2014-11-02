@@ -148,6 +148,7 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'beyondmarc/glsl.vim'
 NeoBundle 'terryma/vim-expand-region'
 NeoBundle 'maciakl/vim-neatstatus'
+NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'ahf/twelf-syntax'
 NeoBundle 'bitc/vim-hdevtools'
 NeoBundle 'dag/vim2hs'
@@ -171,4 +172,8 @@ let g:NERDCustomDelimiters = {
   \ 'tutch': { 'left': '%{', 'right': '}%' },
   \ 'twelf': { 'left': '%{', 'right': '}%' }
 \ }
+
+" Custom CtrlP Commands
+let g:ctrlp_map = '<C-p>'
+let g:ctrlp_cmd = 'CtrlP'
 
