@@ -35,7 +35,7 @@ if exists('&colorcolumn')
 endif
 
 " Use to change colorscheme
-silent! colorscheme ir_black
+silent! colorscheme avp
 set background=dark
 
 " Highlight trailing whitespace.
