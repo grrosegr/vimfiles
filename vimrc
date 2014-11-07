@@ -142,6 +142,7 @@ set showcmd
 
 NeoBundle 'spolu/dwm.vim'
 NeoBundle 'scrooloose/nerdcommenter'
+NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'ervandew/supertab'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'tpope/vim-surround'
