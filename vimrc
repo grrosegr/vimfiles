@@ -148,7 +148,7 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'beyondmarc/glsl.vim'
 NeoBundle 'terryma/vim-expand-region'
-NeoBundle 'maciakl/vim-neatstatus'
+NeoBundle 'bling/vim-airline'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'ahf/twelf-syntax'
 NeoBundle 'bitc/vim-hdevtools'
@@ -178,4 +178,7 @@ let g:NERDCustomDelimiters = {
 " Custom CtrlP Commands
 let g:ctrlp_map = '<C-p>'
 let g:ctrlp_cmd = 'CtrlP'
+
+set laststatus=2
+let g:airline_powerline_fonts = 1
 
