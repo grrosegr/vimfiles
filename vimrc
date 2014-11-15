@@ -146,6 +146,7 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'ervandew/supertab'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'tpope/vim-surround'
+NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'beyondmarc/glsl.vim'
 NeoBundle 'terryma/vim-expand-region'
 NeoBundle 'bling/vim-airline'
@@ -181,4 +182,5 @@ let g:ctrlp_cmd = 'CtrlP'
 
 set laststatus=2
 let g:airline_powerline_fonts = 1
+let g:airline_theme = 'simple'
 
