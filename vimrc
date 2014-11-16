@@ -50,6 +50,9 @@ autocmd FileType c,cpp,java autocmd BufWritePre * :%s/\s\+$//e
 " Font for GUI vim
 set guifont=Inconsolata:h14
 
+" Bracket matching
+set matchtime=1
+
 " ============================================================================
 " IMPORTANT OPTIONS
 " ============================================================================
