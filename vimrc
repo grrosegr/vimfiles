@@ -53,6 +53,15 @@ set guifont=Inconsolata:h14
 " Bracket matching
 set matchtime=1
 
+" Buffer shortcuts
+noremap <right> :bn<cr>
+noremap <left> :bp<cr>
+noremap <down> :bd<cr>
+inoremap <right> <esc>:bn<cr>
+inoremap <left> <esc>:bp<cr>
+inoremap <down> <esc>:bd<cr>
+
+
 " ============================================================================
 " IMPORTANT OPTIONS
 " ============================================================================
@@ -146,14 +155,16 @@ set showcmd
 NeoBundle 'spolu/dwm.vim'
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'ervandew/supertab'
 NeoBundle 'scrooloose/syntastic'
+NeoBundle 'jlanzarotta/bufexplorer'
+NeoBundle 'ervandew/supertab'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'beyondmarc/glsl.vim'
 NeoBundle 'terryma/vim-expand-region'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'jalcine/cmake.vim'
 NeoBundle 'ahf/twelf-syntax'
 NeoBundle 'bitc/vim-hdevtools'
 NeoBundle 'dag/vim2hs'
@@ -186,4 +197,7 @@ let g:ctrlp_cmd = 'CtrlP'
 set laststatus=2
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'simple'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
 
