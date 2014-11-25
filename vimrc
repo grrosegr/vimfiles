@@ -53,6 +53,10 @@ set guifont=Inconsolata:h14
 " Bracket matching
 set matchtime=1
 
+" Timeout lengths
+set timeoutlen=500
+set ttimeoutlen=10
+
 " Buffer shortcuts
 noremap <right> :bn<cr>
 noremap <left> :bp<cr>
@@ -198,6 +202,6 @@ set laststatus=2
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'simple'
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_sep = ''
 let g:airline#extensions#tabline#left_alt_sep = '|'
 
