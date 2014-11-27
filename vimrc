@@ -60,10 +60,8 @@ set ttimeoutlen=10
 " Buffer shortcuts
 noremap <right> :bn<cr>
 noremap <left> :bp<cr>
-noremap <down> :bd<cr>
 inoremap <right> <esc>:bn<cr>
 inoremap <left> <esc>:bp<cr>
-inoremap <down> <esc>:bd<cr>
 
 
 " ============================================================================
