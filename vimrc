@@ -58,9 +58,13 @@ set timeoutlen=500
 set ttimeoutlen=10
 
 " Buffer shortcuts
-noremap <right> :bn<cr>
-noremap <left> :bp<cr>
+set hidden
+nnoremap <right> :bn<cr>
+nnoremap <left> :bp<cr>
+nnoremap <leader>l :ls<cr>:b<space>
 
+" NERDTree shortcuts
+nnoremap <leader>e :NERDTreeToggle<cr>
 
 " ============================================================================
 " IMPORTANT OPTIONS
