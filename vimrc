@@ -175,6 +175,7 @@ NeoBundle 'dag/vim2hs'
 NeoBundle 'travitch/hasksyn'
 NeoBundle 'eagletmt/neco-ghc'
 NeoBundle 'lervag/vim-latex'
+NeoBundle 'justinmk/vim-syntax-extra'
 
 call neobundle#end()
 
