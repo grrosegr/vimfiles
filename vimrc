@@ -48,7 +48,12 @@ nnoremap <silent> <leader>S :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl
 autocmd FileType c,cpp,java autocmd BufWritePre * :%s/\s\+$//e
 
 " Font for GUI vim
-set guifont=Inconsolata:h14
+let os = substitute(system('uname -s'), "\n", "", "")
+if os == "Linux"
+  set guifont=Inconsolata\ Medium\ 12
+elseif os == "Darwin"
+  set guifont=Inconsolata\ for\ Powerline:h14
+endif
 
 " Bracket matching
 set matchtime=1
@@ -156,26 +161,26 @@ set showcmd
 " PLUGINS
 " ============================================================================
 
-NeoBundle 'spolu/dwm.vim'
+NeoBundle 'Valloric/YouCompleteMe'
+NeoBundle 'ahf/twelf-syntax'
+NeoBundle 'bitc/vim-hdevtools'
+NeoBundle 'bling/vim-airline'
+NeoBundle 'dag/vim2hs'
+NeoBundle 'eagletmt/neco-ghc'
+NeoBundle 'ervandew/supertab'
+NeoBundle 'jalcine/cmake.vim'
+NeoBundle 'jlanzarotta/bufexplorer'
+NeoBundle 'justinmk/vim-syntax-extra'
+NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'lervag/vim-latex'
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
-NeoBundle 'jlanzarotta/bufexplorer'
-NeoBundle 'ervandew/supertab'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'beyondmarc/glsl.vim'
+NeoBundle 'spolu/dwm.vim'
 NeoBundle 'terryma/vim-expand-region'
-NeoBundle 'bling/vim-airline'
-NeoBundle 'kien/ctrlp.vim'
-NeoBundle 'jalcine/cmake.vim'
-NeoBundle 'ahf/twelf-syntax'
-NeoBundle 'bitc/vim-hdevtools'
-NeoBundle 'dag/vim2hs'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-surround'
 NeoBundle 'travitch/hasksyn'
-NeoBundle 'eagletmt/neco-ghc'
-NeoBundle 'lervag/vim-latex'
-NeoBundle 'justinmk/vim-syntax-extra'
 
 call neobundle#end()
 
@@ -206,3 +211,6 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ''
 let g:airline#extensions#tabline#left_alt_sep = '|'
 
+let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
+let g:ycm_extra_conf_globlist = ['~/dev/*','!~/*']
+let g:ycm_register_as_syntastic_checker = 0

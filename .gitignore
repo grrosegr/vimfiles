@@ -2,6 +2,8 @@
 *~
 *.swp
 
+*.py[cod]
+
 bundle/*
 !bundle/neobundle.vim
 
