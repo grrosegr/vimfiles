@@ -47,6 +47,9 @@ nnoremap <silent> <leader>S :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl
 " Delete trailing whitespace on save.
 autocmd FileType c,cpp,java autocmd BufWritePre * :%s/\s\+$//e
 
+" Substitute all word under cursor.
+nnoremap <leader>s :%s/\<<C-r><C-w>\>/
+
 " Font for GUI vim
 let os = substitute(system('uname -s'), "\n", "", "")
 if os == "Linux"
@@ -135,9 +138,9 @@ nnoremap k gk
 " Save on losing focus (I don't think this works)
 au FocusLost * :wa
 
-" Swap lines
-nnoremap <c-up> ddkP
-nnoremap <c-down> ddp
+" Swap lines (in a repeatable way)
+nnoremap <leader><up> @='ddkP'<cr>
+nnoremap <leader><down> @='ddp'<cr>
 
 " Ensure that we are in modern vim mode, not backwards-compatible vi mode
 set nocompatible
