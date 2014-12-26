@@ -11,11 +11,18 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " CUSTOM CHANGES
 " ============================================================================
 
-" Use the , as a leader
-let mapleader = ","
+" Use the \ as a leader
+let mapleader = "\\"
 
 " Fast saving
-nmap <leader>w :w<cr>
+nnoremap <leader>w :w<cr>
+nnoremap <leader>W :wall<cr>
+
+" Enable block nav shortcuts when { isn't on the first column.
+nmap [[ ?{<cr>w99[{
+nmap ][ /}<cr>b99]}
+nmap ]] j0[[%/{<cr>
+nmap [] k$][%?}<cr>
 
 " Quick editing of vimrc
 nnoremap <silent> <leader>R :so ~/.vimrc<cr>
@@ -48,7 +55,7 @@ nnoremap <silent> <leader>S :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl
 autocmd FileType c,cpp,java autocmd BufWritePre * :%s/\s\+$//e
 
 " Substitute all word under cursor.
-nnoremap <leader>s :%s/\<<C-r><C-w>\>/
+nnoremap <leader>s :%s/\<<c-r><c-w>\>/
 
 " Font for GUI vim
 let os = substitute(system('uname -s'), "\n", "", "")
@@ -58,12 +65,16 @@ elseif os == "Darwin"
   set guifont=Inconsolata\ for\ Powerline:h14
 endif
 
-" Bracket matching
+" Bracket matching (.1s)
 set matchtime=1
 
 " Timeout lengths
 set timeoutlen=500
 set ttimeoutlen=10
+
+" Swap lines (in a repeatable way)
+nnoremap <leader><up> @='ddkP'<cr>
+nnoremap <leader><down> @='ddp'<cr>
 
 " Buffer shortcuts
 set hidden
@@ -73,6 +84,9 @@ nnoremap <leader>l :ls<cr>:b<space>
 
 " NERDTree shortcuts
 nnoremap <leader>e :NERDTreeToggle<cr>
+
+" Save on losing focus (I don't think this works) 
+au FocusLost * :wall
 
 " ============================================================================
 " IMPORTANT OPTIONS
@@ -94,9 +108,6 @@ set mouse=a
 
 " Show title
 set title
-
-" Use semicolon instead of colon
-nnoremap ; :
 
 " Doesn't store useless backup stuff
 set noswapfile
@@ -134,13 +145,6 @@ set undolevels=1000
 " Set long lines to be treated as multiple lines when soft wrapped
 nnoremap j gj
 nnoremap k gk
-
-" Save on losing focus (I don't think this works)
-au FocusLost * :wa
-
-" Swap lines (in a repeatable way)
-nnoremap <leader><up> @='ddkP'<cr>
-nnoremap <leader><down> @='ddp'<cr>
 
 " Ensure that we are in modern vim mode, not backwards-compatible vi mode
 set nocompatible
@@ -198,9 +202,9 @@ let g:SuperTabDefaultCompletionType = "context"
 
 " Custom NERDCommenter filetypes
 let g:NERDCustomDelimiters = {
-  \ 'tutch': { 'left': '%{', 'right': '}%' },
-  \ 'twelf': { 'left': '%{', 'right': '}%' }
-\ }
+      \ 'tutch': { 'left': '%{', 'right': '}%' },
+      \ 'twelf': { 'left': '%{', 'right': '}%' }
+      \ }
 
 " Custom CtrlP Commands
 let g:ctrlp_map = '<C-p>'
@@ -216,3 +220,4 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
 let g:ycm_extra_conf_globlist = ['~/dev/*','!~/*']
 let g:ycm_register_as_syntastic_checker = 0
+let g:ycm_autoclose_preview_window_after_completion = 1
