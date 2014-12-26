@@ -53,7 +53,7 @@ endif
 " Syntax highlighting
 hi Comment guifg=#7C7C7C guibg=NONE gui=NONE ctermfg=blue ctermbg=NONE cterm=NONE
 hi String guifg=#A8FF60 guibg=NONE gui=NONE ctermfg=green ctermbg=NONE cterm=NONE
-hi Number guifg=#FF73FD guibg=NONE gui=NONE ctermfg=magenta ctermbg=NONE cterm=NONE
+hi Number guifg=#07AADD guibg=NONE gui=NONE ctermfg=magenta ctermbg=NONE cterm=NONE
 
 hi Keyword guifg=#96CBFE guibg=NONE gui=NONE ctermfg=yellow ctermbg=NONE cterm=NONE
 hi PreProc guifg=#96CBFE guibg=NONE gui=NONE ctermfg=yellow ctermbg=NONE cterm=NONE
@@ -69,7 +69,7 @@ hi Statement guifg=#FFFFB6 guibg=NONE gui=NONE ctermfg=white ctermbg=NONE cterm=
 
 hi Special guifg=#E18964 guibg=NONE gui=NONE ctermfg=white ctermbg=NONE cterm=NONE
 hi Delimiter guifg=#CCCCCC guibg=NONE gui=NONE ctermfg=white ctermbg=NONE cterm=NONE
-hi Operator guifg=white guibg=NONE gui=NONE ctermfg=white ctermbg=NONE cterm=NONE
+hi Operator guifg=#BBA0FF guibg=NONE gui=NONE ctermfg=white ctermbg=NONE cterm=NONE
 hi StorageClass guifg=#FFA500 guibg=NONE gui=NONE ctermfg=brown ctermbg=NONE cterm=NONE
 
 hi link Character Constant
