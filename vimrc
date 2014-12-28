@@ -72,10 +72,6 @@ set matchtime=1
 set timeoutlen=500
 set ttimeoutlen=10
 
-" Swap lines (in a repeatable way)
-nnoremap <leader><up> @='ddkP'<cr>
-nnoremap <leader><down> @='ddp'<cr>
-
 " Buffer shortcuts
 set hidden
 nnoremap <right> :bn<cr>
@@ -85,7 +81,7 @@ nnoremap <leader>l :ls<cr>:b<space>
 " NERDTree shortcuts
 nnoremap <leader>e :NERDTreeToggle<cr>
 
-" Save on losing focus (I don't think this works) 
+" Save on losing focus (I don't think this works)
 au FocusLost * :wall
 
 " ============================================================================
@@ -186,6 +182,7 @@ NeoBundle 'spolu/dwm.vim'
 NeoBundle 'terryma/vim-expand-region'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-surround'
+NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'travitch/hasksyn'
 
 call neobundle#end()
