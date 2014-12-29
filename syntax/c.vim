@@ -885,7 +885,8 @@ syn keyword cSysFunc    ftrylockfile
 syn keyword cSysFunc    funlockfile
 
 " My keywords
-syn keyword cContract   assert
+syn keyword cContract assert
+syn match cNumber display contained "0b\(1\|0\)\+\>"
 
 hi def link cSysFunc    cSpecial
 hi def link cContract   cContracts
