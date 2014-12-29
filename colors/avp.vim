@@ -13,7 +13,7 @@ let colors_name = "avp"
 "hi Example guifg=NONE guibg=NONE gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE
 
 " General colors
-hi Normal guifg=#f6f3e8 guibg=black gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE
+hi Normal guifg=#D2BD07 guibg=black gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE
 hi NonText guifg=#070707 guibg=black gui=NONE ctermfg=black ctermbg=NONE cterm=NONE
 
 hi Cursor guifg=black guibg=white gui=NONE ctermfg=black ctermbg=white cterm=reverse
@@ -55,22 +55,21 @@ hi Comment guifg=#7C7C7C guibg=NONE gui=NONE ctermfg=blue ctermbg=NONE cterm=NON
 hi String guifg=#A8FF60 guibg=NONE gui=NONE ctermfg=green ctermbg=NONE cterm=NONE
 hi Number guifg=#07AADD guibg=NONE gui=NONE ctermfg=magenta ctermbg=NONE cterm=NONE
 
-hi Keyword guifg=#96CBFE guibg=NONE gui=NONE ctermfg=yellow ctermbg=NONE cterm=NONE
+hi Keyword guifg=#A86019 guibg=NONE gui=NONE ctermfg=yellow ctermbg=NONE cterm=NONE
 hi PreProc guifg=#96CBFE guibg=NONE gui=NONE ctermfg=yellow ctermbg=NONE cterm=NONE
-hi Conditional guifg=#88CCFF guibg=NONE gui=NONE ctermfg=yellow ctermbg=NONE cterm=NONE " if else end
+hi Conditional guifg=#B366C6 guibg=NONE gui=NONE ctermfg=yellow ctermbg=NONE cterm=NONE " if else end
 
 hi Todo guifg=#8f8f8f guibg=NONE gui=NONE ctermfg=black ctermbg=green cterm=NONE
 hi Constant guifg=#99CC99 guibg=NONE gui=NONE ctermfg=cyan ctermbg=NONE cterm=NONE
 
 hi Identifier guifg=#C6C5FE guibg=NONE gui=NONE ctermfg=cyan ctermbg=NONE cterm=NONE
-hi Function guifg=#99F2A7 guibg=NONE gui=NONE ctermfg=cyan ctermbg=NONE cterm=NONE
-hi Type guifg=#EEEE00 guibg=NONE gui=NONE ctermfg=gray ctermbg=NONE cterm=NONE
+hi Function guifg=#9AD5C1 guibg=NONE gui=NONE ctermfg=cyan ctermbg=NONE cterm=NONE
+hi Type guifg=#6FB412 guibg=NONE gui=NONE ctermfg=gray ctermbg=NONE cterm=NONE
 hi Statement guifg=#FFFFB6 guibg=NONE gui=NONE ctermfg=white ctermbg=NONE cterm=NONE
 
-hi Special guifg=#E18964 guibg=NONE gui=NONE ctermfg=white ctermbg=NONE cterm=NONE
+hi Special guifg=#A86019 guibg=NONE gui=NONE ctermfg=white ctermbg=NONE cterm=NONE
 hi Delimiter guifg=#CCCCCC guibg=NONE gui=NONE ctermfg=white ctermbg=NONE cterm=NONE
-hi Operator guifg=#BBA0FF guibg=NONE gui=NONE ctermfg=white ctermbg=NONE cterm=NONE
-hi StorageClass guifg=#FFA500 guibg=NONE gui=NONE ctermfg=brown ctermbg=NONE cterm=NONE
+hi Operator guifg=#FFFFFF guibg=NONE gui=NONE ctermfg=white ctermbg=NONE cterm=NONE
 
 hi link Character Constant
 hi link Boolean Constant
@@ -82,7 +81,7 @@ hi link Include PreProc
 hi link Define PreProc
 hi link Macro PreProc
 hi link PreCondit PreProc
-hi link StorageClass Type
+hi link StorageClass Special
 hi link Structure Type
 hi link Typedef Type
 hi link Tag Special
