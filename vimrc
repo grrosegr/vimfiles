@@ -81,8 +81,14 @@ nnoremap <leader>l :ls<cr>:b<space>
 " NERDTree shortcuts
 nnoremap <leader>e :NERDTreeToggle<cr>
 
-" Save on losing focus (I don't think this works)
-au FocusLost * :wall
+" Tag shortcuts
+nnoremap <leader>t :CtrlPTag<cr>
+
+" FSwitch
+nnoremap <leader>fs :FSHere<cr>
+
+" Tagbar
+nnoremap <leader>t :TagbarToggle<cr>
 
 " ============================================================================
 " IMPORTANT OPTIONS
@@ -169,12 +175,14 @@ NeoBundle 'ahf/twelf-syntax'
 NeoBundle 'bitc/vim-hdevtools'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'dag/vim2hs'
+NeoBundle 'derekwyatt/vim-fswitch'
 NeoBundle 'eagletmt/neco-ghc'
 NeoBundle 'jalcine/cmake.vim'
 NeoBundle 'jlanzarotta/bufexplorer'
 NeoBundle 'justinmk/vim-syntax-extra'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'lervag/vim-latex'
+NeoBundle 'majutsushi/tagbar'
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
@@ -186,6 +194,8 @@ NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'travitch/hasksyn'
+NeoBundle 'xolox/vim-easytags'
+NeoBundle 'xolox/vim-misc'
 
 call neobundle#end()
 
@@ -199,17 +209,18 @@ au filetype python setlocal tabstop=2
 
 let g:SuperTabDefaultCompletionType = "context"
 
-" Custom NERDCommenter filetypes
+" NERDCommenter
 let g:NERDCustomDelimiters = {
       \ 'tutch': { 'left': '%{', 'right': '}%' },
       \ 'twelf': { 'left': '%{', 'right': '}%' }
       \ }
 
-" Custom CtrlP Commands
+" CtrlP
 let g:ctrlp_map = '<C-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
+" Airline
 set laststatus=2
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'simple'
@@ -217,6 +228,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ''
 let g:airline#extensions#tabline#left_alt_sep = '|'
 
+" YouCompleteMe
 let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
 let g:ycm_extra_conf_globlist = ['~/dev/*','!~/*']
 let g:ycm_register_as_syntastic_checker = 0
