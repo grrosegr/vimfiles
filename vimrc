@@ -7,6 +7,38 @@ call neobundle#begin(expand('~/.vim/bundle'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 
+NeoBundle 'Valloric/YouCompleteMe'
+NeoBundle 'ahf/twelf-syntax'
+NeoBundle 'bitc/vim-hdevtools'
+NeoBundle 'bling/vim-airline'
+NeoBundle 'dag/vim2hs'
+NeoBundle 'derekwyatt/vim-fswitch'
+NeoBundle 'eagletmt/neco-ghc'
+NeoBundle 'jalcine/cmake.vim'
+NeoBundle 'jlanzarotta/bufexplorer'
+NeoBundle 'justinmk/vim-syntax-extra'
+NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'lervag/vim-latex'
+NeoBundle 'majutsushi/tagbar'
+NeoBundle 'rking/ag.vim'
+NeoBundle 'scrooloose/nerdcommenter'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'spolu/dwm.vim'
+NeoBundle 'terryma/vim-expand-region'
+NeoBundle 'tpope/vim-endwise'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-repeat'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'tpope/vim-unimpaired'
+NeoBundle 'travitch/hasksyn'
+NeoBundle 'xolox/vim-easytags'
+NeoBundle 'xolox/vim-misc'
+
+call neobundle#end()
+
+NeoBundleCheck
+
 " ============================================================================
 " CUSTOM CHANGES
 " ============================================================================
@@ -170,37 +202,6 @@ set showcmd
 " PLUGINS
 " ============================================================================
 
-NeoBundle 'Valloric/YouCompleteMe'
-NeoBundle 'ahf/twelf-syntax'
-NeoBundle 'bitc/vim-hdevtools'
-NeoBundle 'bling/vim-airline'
-NeoBundle 'dag/vim2hs'
-NeoBundle 'derekwyatt/vim-fswitch'
-NeoBundle 'eagletmt/neco-ghc'
-NeoBundle 'jalcine/cmake.vim'
-NeoBundle 'jlanzarotta/bufexplorer'
-NeoBundle 'justinmk/vim-syntax-extra'
-NeoBundle 'kien/ctrlp.vim'
-NeoBundle 'lervag/vim-latex'
-NeoBundle 'majutsushi/tagbar'
-NeoBundle 'scrooloose/nerdcommenter'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'spolu/dwm.vim'
-NeoBundle 'terryma/vim-expand-region'
-NeoBundle 'tpope/vim-endwise'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'tpope/vim-repeat'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'tpope/vim-unimpaired'
-NeoBundle 'travitch/hasksyn'
-NeoBundle 'xolox/vim-easytags'
-NeoBundle 'xolox/vim-misc'
-
-call neobundle#end()
-
-NeoBundleCheck
-
 let g:NeatStatusLine_color_insert='guifg=#ffffff guibg=#ff0000 gui=bold ctermfg=2 ctermbg=0 cterm=bold'
 silent! let g:syntastic_python_checkers = []
 
@@ -218,7 +219,24 @@ let g:NERDCustomDelimiters = {
 " CtrlP
 let g:ctrlp_map = '<C-p>'
 let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+if exists("g:ctrlp_user_command")
+  unlet g:ctrlp_user_command
+endif
+" The Silver Searcher
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects
+  " .gitignore
+  let g:ctrlp_user_command =
+      \ 'ag %s --files-with-matches -g "" --ignore "\.git$\|\.hg$\|\.svn$"'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+else
+  let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+endif
 
 " Airline
 set laststatus=2
@@ -233,3 +251,7 @@ let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
 let g:ycm_extra_conf_globlist = ['~/dev/*','!~/*']
 let g:ycm_register_as_syntastic_checker = 0
 let g:ycm_autoclose_preview_window_after_completion = 1
+
+" Ag
+nnoremap <leader>g :Ag<space>
+nnoremap <leader>G :Ag <cword><cr>
