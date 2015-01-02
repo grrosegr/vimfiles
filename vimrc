@@ -48,6 +48,9 @@ NeoBundleCheck
 " Use the \ as a leader
 let mapleader = "\\"
 
+" Get the current OS
+let os = substitute(system('uname -s'), "\n", "", "")
+
 " Fast saving
 nnoremap <leader>w :w<cr>
 nnoremap <leader>W :wall<cr>
@@ -78,7 +81,6 @@ endif
 " Appearance
 silent! colorscheme avp
 set background=dark
-let os = substitute(system('uname -s'), "\n", "", "")
 if os == "Linux"
   set guifont=Inconsolata\ Medium\ 12
 elseif os == "Darwin"
@@ -136,7 +138,7 @@ nnoremap <leader>e :NERDTreeToggle<cr>
 silent! let g:syntastic_python_checkers = []
 
 " Tagbar
-nnoremap <leader>t :TagbarToggle<cr>
+nnoremap <leader>t :TagbarOpenAutoClose<cr>
 
 " CtrlP
 let g:ctrlp_map = '<C-p>'
