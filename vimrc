@@ -11,19 +11,18 @@ call neobundle#begin(expand('~/.vim/bundle'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Valloric/YouCompleteMe'
 NeoBundle 'bitc/vim-hdevtools'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'dag/vim2hs'
 NeoBundle 'derekwyatt/vim-fswitch'
 NeoBundle 'eagletmt/neco-ghc'
-NeoBundle 'jlanzarotta/bufexplorer'
 NeoBundle 'justinmk/vim-syntax-extra'
-NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'lervag/vim-latex'
 NeoBundle 'lilydjwg/colorizer'
 NeoBundle 'majutsushi/tagbar'
-NeoBundle 'rking/ag.vim'
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
@@ -36,6 +35,16 @@ NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'travitch/hasksyn'
 NeoBundle 'xolox/vim-easytags'
 NeoBundle 'xolox/vim-misc'
+
+NeoBundle 'Shougo/vimproc.vim', {
+      \ 'build' : {
+      \     'windows' : 'tools\\update-dll-mingw',
+      \     'cygwin' : 'make -f make_cygwin.mak',
+      \     'mac' : 'make -f make_mac.mak',
+      \     'linux' : 'make',
+      \     'unix' : 'gmake',
+      \    },
+      \ }
 
 call neobundle#end()
 
@@ -152,7 +161,7 @@ if executable('ag')
 
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
   let g:ctrlp_user_command =
-      \ 'ag %s --files-with-matches -g "" --ignore "\.git$\|\.hg$\|\.svn$"'
+        \ 'ag %s --files-with-matches -g "" --ignore "\.git$\|\.hg$\|\.svn$"'
 
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
@@ -166,6 +175,47 @@ let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
 let g:ycm_extra_conf_globlist = ['~/dev/*','!~/*']
 let g:ycm_register_as_syntastic_checker = 0
 let g:ycm_autoclose_preview_window_after_completion = 1
+
+" ============================================================================
+" Unite
+" ============================================================================
+let g:unite_enable_start_insert = 1
+let g:unite_split_rule = "botright"
+let g:unite_force_overwrite_statusline = 0
+let g:unite_winheight = 10
+
+autocmd FileType unite call s:unite_settings()
+function! s:unite_settings()
+  let b:SuperTabDisabled=1
+  imap <buffer> <C-j> <Plug>(unite_select_next_line)
+  imap <buffer> <C-k> <Plug>(unite_select_previous_line)
+  imap <silent><buffer><expr> <C-x> unite#do_action('split')
+  imap <silent><buffer><expr> <C-v> unite#do_action('vsplit')
+  imap <silent><buffer><expr> <C-t> unite#do_action('tabopen')
+  nmap <buffer> <ESC> <Plug>(unite_exit)
+endfunction
+
+" CtrlP-like bindings
+if executable('ag')
+  let g:unite_source_rec_async_command= 'ag --nocolor --nogroup --hidden -g ""'
+endif
+call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
+      \ 'ignore_pattern', join([
+      \ '\.git/',
+      \ ], '\|'))
+
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#filters#sorter_default#use(['sorter_rank'])
+nnoremap <C-p> :<C-u>Unite -buffer-name=files -start-insert buffer file_rec/async:!<cr>
+
+" Ag
+nnoremap <leader>/ :Unite -start-insert grep:.<cr>
+if executable('ag')
+  nnoremap <leader>/ :Unite -start-insert grep:.<cr>
+endif
+
+" Buffer switching
+nnoremap <leader>b :<C-u>Unite -quick-match buffer<cr>
 
 " ============================================================================
 " IMPORTANT OPTIONS
