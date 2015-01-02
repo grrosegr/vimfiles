@@ -55,7 +55,7 @@ hi Comment guifg=#7C7C7C guibg=NONE gui=NONE ctermfg=blue ctermbg=NONE cterm=NON
 hi String guifg=#A8FF60 guibg=NONE gui=NONE ctermfg=green ctermbg=NONE cterm=NONE
 hi Number guifg=#07AADD guibg=NONE gui=NONE ctermfg=magenta ctermbg=NONE cterm=NONE
 
-hi Keyword guifg=#A86019 guibg=NONE gui=NONE ctermfg=yellow ctermbg=NONE cterm=NONE
+hi Keyword guifg=#F8A089 guibg=NONE gui=NONE ctermfg=yellow ctermbg=NONE cterm=NONE
 hi PreProc guifg=#96CBFE guibg=NONE gui=NONE ctermfg=yellow ctermbg=NONE cterm=NONE
 hi Conditional guifg=#B366C6 guibg=NONE gui=NONE ctermfg=yellow ctermbg=NONE cterm=NONE " if else end
 
@@ -67,7 +67,7 @@ hi Function guifg=#9AD5C1 guibg=NONE gui=NONE ctermfg=cyan ctermbg=NONE cterm=NO
 hi Type guifg=#6FB412 guibg=NONE gui=NONE ctermfg=gray ctermbg=NONE cterm=NONE
 hi Statement guifg=#FFFFB6 guibg=NONE gui=NONE ctermfg=white ctermbg=NONE cterm=NONE
 
-hi Special guifg=#A86019 guibg=NONE gui=NONE ctermfg=white ctermbg=NONE cterm=NONE
+hi Special guifg=#F8A089 guibg=NONE gui=NONE ctermfg=white ctermbg=NONE cterm=NONE
 hi Delimiter guifg=#CCCCCC guibg=NONE gui=NONE ctermfg=white ctermbg=NONE cterm=NONE
 hi Operator guifg=#FFFFFF guibg=NONE gui=NONE ctermfg=white ctermbg=NONE cterm=NONE
 
