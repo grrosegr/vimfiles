@@ -120,7 +120,14 @@ nnoremap <left> :bp<cr>
 nnoremap <leader>l :ls<cr>:b<space>
 
 " Tags
-nnoremap <leader>t :CtrlPTag<cr>
+function! PrintTagTarget()
+  let target = expand("<cword>")
+  execute "tag ".target
+  let line = getline('.')
+  execute "pop"
+  echo line
+endfunction
+nnoremap <silent> <C-\> :call PrintTagTarget()<cr>
 
 " ======= PLUGINS =======
 
@@ -176,10 +183,7 @@ let g:ycm_extra_conf_globlist = ['~/dev/*','!~/*']
 let g:ycm_register_as_syntastic_checker = 0
 let g:ycm_autoclose_preview_window_after_completion = 1
 
-" ============================================================================
-" Unite
-" ============================================================================
-
+" ======= Unite =======
 " Options
 let g:unite_enable_start_insert = 1
 let g:unite_split_rule = "botright"
