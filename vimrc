@@ -148,6 +148,7 @@ nnoremap <leader>G :Ag <cword><cr>
 nnoremap <leader>fs :FSHere<cr>
 
 " NERDTree
+let NERDTreeIgnore = ['\~$', '\.o', '\.pyc$']
 nnoremap <leader>e :NERDTreeToggle<cr>
 
 " Syntastic
