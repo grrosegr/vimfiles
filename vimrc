@@ -11,8 +11,8 @@ call neobundle#begin(expand('~/.vim/bundle'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
+NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Valloric/YouCompleteMe'
 NeoBundle 'bitc/vim-hdevtools'
 NeoBundle 'bling/vim-airline'
@@ -26,6 +26,7 @@ NeoBundle 'majutsushi/tagbar'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'spolu/dwm.vim'
+NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'tpope/vim-commentary'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'tpope/vim-fugitive'
@@ -122,10 +123,10 @@ nnoremap <leader>l :ls<cr>:b<space>
 " Tags
 function! PrintTagTarget()
   let target = expand("<cword>")
-  execute "tag ".target
+  execute "silent tag ".target
   let line = getline('.')
-  execute "pop"
-  echo line
+  execute "silent pop"
+  echom line
 endfunction
 nnoremap <silent> <C-\> :call PrintTagTarget()<cr>
 
