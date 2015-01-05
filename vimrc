@@ -1,4 +1,11 @@
 " ============================================================================
+" Basic UTF Encoding
+" ============================================================================
+
+set encoding=utf-8
+scriptencoding utf-8
+
+" ============================================================================
 " NeoBundle
 " ============================================================================
 
@@ -91,6 +98,7 @@ endif
 " Appearance
 colorscheme avp
 set background=dark
+set t_Co=256
 if os == "Linux"
   set guifont=Inconsolata\ Medium\ 12
 elseif os == "Darwin"
@@ -217,7 +225,7 @@ call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
 
 " Bindings
 nnoremap <C-p> :<C-u>Unite -buffer-name=files -start-insert buffer file_rec/async:!<cr>
-nnoremap <leader>/ :Unite -start-insert grep:.<cr>
+nnoremap <leader>/ :<C-u>Unite -start-insert grep:.<cr>
 nnoremap <leader>b :<C-u>Unite -quick-match buffer<cr>
 nnoremap <leader>y :<C-u>Unite -buffer-name=yank history/yank<cr>
 
