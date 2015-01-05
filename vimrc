@@ -56,7 +56,7 @@ NeoBundleCheck
 " ============================================================================
 
 " Use the \ as a leader
-let mapleader = "\\"
+let g:mapleader = "\\"
 
 " Get the current OS
 let os = substitute(system('uname -s'), "\n", "", "")
@@ -89,7 +89,7 @@ if exists('&colorcolumn')
 endif
 
 " Appearance
-silent! colorscheme avp
+colorscheme avp
 set background=dark
 if os == "Linux"
   set guifont=Inconsolata\ Medium\ 12
@@ -99,10 +99,8 @@ endif
 
 " Highlight trailing whitespace.
 match ErrorMsg '\s\+\%#\@<!$'
-
 " Strip trailing whitespace with <leader>S
 nnoremap <silent> <leader>S :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
-
 " Delete trailing whitespace on save.
 autocmd FileType c,cpp,java autocmd BufWritePre * :%s/\s\+$//e
 
@@ -130,7 +128,12 @@ function! PrintTagTarget()
 endfunction
 nnoremap <silent> <C-\> :call PrintTagTarget()<cr>
 
-" ======= PLUGINS =======
+" Make ~ work like an operator, like d and y
+set tildeop
+
+" ============================================================================
+" PLUGINS
+" ============================================================================
 
 " Airline
 " Always show status line correctly
@@ -205,7 +208,7 @@ function! s:unite_settings()
   nmap <buffer> <ESC> <Plug>(unite_exit)
 endfunction
 if executable('ag')
-  let g:unite_source_rec_async_command= 'ag --nocolor --nogroup --hidden -g ""'
+  let g:unite_source_rec_async_command= 'ag --nocolor --nogroup -g ""'
 endif
 call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
       \ 'ignore_pattern', join([
@@ -228,9 +231,6 @@ set shiftwidth=2
 set expandtab
 set smarttab
 set smartindent
-
-au filetype python setlocal shiftwidth=2
-au filetype python setlocal tabstop=2
 
 " Ignore compiled files
 set wildmenu
@@ -267,7 +267,7 @@ set incsearch
 set showmatch
 set hlsearch
 set magic
-nnoremap <silent> <leader><space> :noh<cr>
+nnoremap <silent> <leader>n :noh<cr>
 
 " Automatically refreshes file
 set autoread
@@ -290,7 +290,7 @@ set noshowmode
 " More secure encryption
 set cryptmethod=blowfish
 
-" Enable filetype detection and syntax hilighting
+" Enable filetype detection and syntax highlighting
 syntax on
 filetype plugin indent on
 
