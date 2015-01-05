@@ -13,7 +13,7 @@ let colors_name = "avp"
 "hi Example guifg=NONE guibg=NONE gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE
 
 " General colors
-hi Normal guifg=#D2BD07 guibg=black gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE
+hi Normal guifg=#FFCC00 guibg=black gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE
 hi NonText guifg=#070707 guibg=black gui=NONE ctermfg=black ctermbg=NONE cterm=NONE
 
 hi Cursor guifg=black guibg=white gui=NONE ctermfg=black ctermbg=white cterm=reverse
@@ -51,23 +51,23 @@ if version >= 700 " Vim 7.x specific colors
 endif
 
 " Syntax highlighting
-hi Comment guifg=#7C7C7C guibg=NONE gui=NONE ctermfg=blue ctermbg=NONE cterm=NONE
-hi String guifg=#A8FF60 guibg=NONE gui=NONE ctermfg=green ctermbg=NONE cterm=NONE
-hi Number guifg=#07AADD guibg=NONE gui=NONE ctermfg=magenta ctermbg=NONE cterm=NONE
+hi Comment guifg=#7C7C7C guibg=NONE gui=NONE ctermfg=gray ctermbg=NONE cterm=NONE
+hi String guifg=#A8FF60 guibg=NONE gui=NONE ctermfg=47 ctermbg=NONE cterm=NONE
+hi Number guifg=#07AADD guibg=NONE gui=NONE ctermfg=75 ctermbg=NONE cterm=NONE
 
-hi Keyword guifg=#F8A089 guibg=NONE gui=NONE ctermfg=yellow ctermbg=NONE cterm=NONE
-hi PreProc guifg=#96CBFE guibg=NONE gui=NONE ctermfg=yellow ctermbg=NONE cterm=NONE
-hi Conditional guifg=#B366C6 guibg=NONE gui=NONE ctermfg=yellow ctermbg=NONE cterm=NONE " if else end
+hi Keyword guifg=#F8A089 guibg=NONE gui=NONE ctermfg=194 ctermbg=NONE cterm=NONE
+hi PreProc guifg=#96CBFE guibg=NONE gui=NONE ctermfg=39 ctermbg=NONE cterm=NONE
+hi Conditional guifg=#B366C6 guibg=NONE gui=NONE ctermfg=194 ctermbg=NONE cterm=NONE " if else end
 
 hi Todo guifg=#8f8f8f guibg=NONE gui=NONE ctermfg=black ctermbg=green cterm=NONE
 hi Constant guifg=#99CC99 guibg=NONE gui=NONE ctermfg=cyan ctermbg=NONE cterm=NONE
 
 hi Identifier guifg=#C6C5FE guibg=NONE gui=NONE ctermfg=cyan ctermbg=NONE cterm=NONE
-hi Function guifg=#9AD5C1 guibg=NONE gui=NONE ctermfg=cyan ctermbg=NONE cterm=NONE
-hi Type guifg=#6FB412 guibg=NONE gui=NONE ctermfg=gray ctermbg=NONE cterm=NONE
-hi Statement guifg=#FFFFB6 guibg=NONE gui=NONE ctermfg=white ctermbg=NONE cterm=NONE
+hi Function guifg=#9AD5C1 guibg=NONE gui=NONE ctermfg=45 ctermbg=NONE cterm=NONE
+hi Type guifg=#6FB412 guibg=NONE gui=NONE ctermfg=40 ctermbg=NONE cterm=NONE
+hi Statement guifg=#FFFFB6 guibg=NONE gui=NONE ctermfg=194 ctermbg=NONE cterm=NONE
 
-hi Special guifg=#F8A089 guibg=NONE gui=NONE ctermfg=white ctermbg=NONE cterm=NONE
+hi Special guifg=#F8A089 guibg=NONE gui=NONE ctermfg=166 ctermbg=NONE cterm=NONE
 hi Delimiter guifg=#CCCCCC guibg=NONE gui=NONE ctermfg=white ctermbg=NONE cterm=NONE
 hi Operator guifg=#FFFFFF guibg=NONE gui=NONE ctermfg=white ctermbg=NONE cterm=NONE
 
