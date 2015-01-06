@@ -1,5 +1,5 @@
 " ============================================================================
-" Basic UTF Encoding
+" UTF Encoding
 " ============================================================================
 
 set encoding=utf-8
@@ -59,14 +59,56 @@ call neobundle#end()
 NeoBundleCheck
 
 " ============================================================================
-" CUSTOM CHANGES
+" General Settings
 " ============================================================================
+
+" Ensure that we are in modern vim mode, not backwards-compatible vi mode
+set nocompatible
+set backspace=indent,eol,start
+
+" Enable filetype detection and syntax highlighting
+syntax on
+filetype plugin indent on
+
+" Show multicharacter commands as they are being typed
+set showcmd
 
 " Use the \ as a leader
 let g:mapleader = "\\"
 
 " Get the current OS
 let os = substitute(system('uname -s'), "\n", "", "")
+
+" Set how many lines of history to remember
+set history=700
+set undolevels=1000
+
+" Timeout lengths
+set matchtime=1 " Bracket matching (.1 s)
+set timeoutlen=500
+set ttimeoutlen=10
+
+" Make ~ work like an operator, like d and y
+set tildeop
+
+" Use F12 as a paste toggle
+set pastetoggle=<leader>p
+
+" Automatically refreshes file
+set autoread
+
+" Better encryption
+set cryptmethod=blowfish
+
+" Use mouse
+set mouse=a
+
+" Show title
+set title
+
+" ============================================================================
+" Utility Keymaps
+" ============================================================================
 
 " Fast saving
 nnoremap <leader>w :w<cr>
@@ -78,8 +120,15 @@ nmap <silent> ][ /}<cr>b99]}
 nmap <silent> ]] j0[[%/{<cr>
 nmap <silent> [] k$][%?}<cr>
 
-" Quick editing of vimrc
+" Quick reload of vimrc
 nnoremap <silent> <leader>R :so ~/.vimrc<cr>
+
+" Substitute all word under cursor.
+nnoremap <leader>s :%s/\<<c-r><c-w>\>/
+
+" ============================================================================
+" Line Numbers
+" ============================================================================
 
 " Line numbers (comment out "set relativenumber" if you want normal numbers)
 set number
@@ -87,15 +136,16 @@ if exists('&relativenumber')
   set relativenumber
 endif
 
-" Set how many lines of history to remember
-set history=700
+" ============================================================================
+" Appearance
+" ============================================================================
 
 " 80/100 character line guide
 if exists('&colorcolumn')
   set colorcolumn=80,100
 endif
 
-" Appearance
+" Colors
 colorscheme avp
 set background=dark
 set t_Co=256
@@ -105,45 +155,108 @@ elseif os == "Darwin"
   set guifont=Inconsolata\ for\ Powerline:h14
 endif
 
+" ============================================================================
+" Trailing whitespace
+" ============================================================================
+
 " Highlight trailing whitespace.
 match ErrorMsg '\s\+\%#\@<!$'
+
 " Strip trailing whitespace with <leader>S
 nnoremap <silent> <leader>S :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+
 " Delete trailing whitespace on save.
 autocmd FileType c,cpp,java autocmd BufWritePre * :%s/\s\+$//e
 
-" Substitute all word under cursor.
-nnoremap <leader>s :%s/\<<c-r><c-w>\>/
+" ============================================================================
+" Buffers
+" ============================================================================
 
-" Timeout lengths
-set matchtime=1 " Bracket matching (.1 s)
-set timeoutlen=500
-set ttimeoutlen=10
-
-" Buffer shortcuts
+" Allow hiding of unsaved buffers.
 set hidden
+
+" Remap left and right to switch between buffers.
 nnoremap <right> :bn<cr>
 nnoremap <left> :bp<cr>
 nnoremap <leader>l :ls<cr>:b<space>
 
+" ============================================================================
 " Tags
+" ============================================================================
 function! PrintTagTarget()
-  let target = expand("<cword>")
-  execute "silent tag ".target
-  let line = getline('.')
+  let b:target = expand("<cword>")
+  execute "silent tag ".b:target
+  let b:line = getline('.')
   execute "silent pop"
-  echom line
+  echom b:line
 endfunction
 nnoremap <silent> <C-\> :call PrintTagTarget()<cr>
 
-" Make ~ work like an operator, like d and y
-set tildeop
-
 " ============================================================================
-" PLUGINS
+" Tabs
 " ============================================================================
 
-" Airline
+set tabstop=2
+set shiftwidth=2
+set expandtab
+set smarttab
+set smartindent
+
+" ============================================================================
+" Backups
+" ============================================================================
+set noswapfile
+set nobackup
+set nowritebackup
+
+" Ignore compiled files
+set wildmenu
+set wildignore=*.o,*~,*.pyc,.git\*
+
+" ============================================================================
+" Folding
+" ============================================================================
+
+set foldmethod=indent
+set foldnestmax=10
+set nofoldenable
+set foldlevel=1
+
+" ============================================================================
+" Scrolling
+" ============================================================================
+
+set scrolloff=3
+set sidescrolloff=5
+
+" Set long lines to be treated as multiple lines when soft wrapped
+nnoremap j gj
+nnoremap k gk
+
+" ============================================================================
+" Searching
+" ============================================================================
+
+set ignorecase
+set smartcase
+set incsearch
+set showmatch
+set hlsearch
+set magic
+nnoremap <silent> <leader>n :noh<cr>
+
+" ============================================================================
+" Status bar
+" ============================================================================
+
+set ruler
+set noshowmode
+
+" ============================================================================
+" Plugins
+" ============================================================================
+
+" ==== Airline ====
 " Always show status line correctly
 set laststatus=2
 let g:airline_powerline_fonts = 1
@@ -152,26 +265,20 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ''
 let g:airline#extensions#tabline#left_alt_sep = '|'
 
-" FSwitch
+" ==== FSwitch ====
 nnoremap <leader>fs :FSHere<cr>
 
-" NERDTree
+" ==== NERDTree ====
 let NERDTreeIgnore = ['\~$', '\.o', '\.pyc$']
 nnoremap <leader>e :NERDTreeToggle<cr>
 
-" Syntastic
+" ==== Syntastic ====
 silent! let g:syntastic_python_checkers = []
 
-" Tagbar
+" ==== Tagbar ====
 nnoremap <leader>t :TagbarOpenAutoClose<cr>
 
-" YouCompleteMe
-let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
-let g:ycm_extra_conf_globlist = ['~/dev/*','!~/*']
-let g:ycm_register_as_syntastic_checker = 0
-let g:ycm_autoclose_preview_window_after_completion = 1
-
-" ======= Unite =======
+" ==== Unite ====
 " Options
 let g:unite_enable_start_insert = 1
 let g:unite_split_rule = "botright"
@@ -197,85 +304,14 @@ call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
       \ 'ignore_pattern', join([
       \ '\.git/',
       \ ], '\|'))
-
 " Bindings
 nnoremap <C-p> :<C-u>Unite -buffer-name=files -start-insert buffer file_rec/async:!<cr>
 nnoremap <leader>/ :<C-u>Unite -start-insert grep:.<cr>
 nnoremap <leader>b :<C-u>Unite -quick-match buffer<cr>
 nnoremap <leader>y :<C-u>Unite -buffer-name=yank history/yank<cr>
 
-" ============================================================================
-" IMPORTANT OPTIONS
-" ============================================================================
-
-" Makes the tabs better
-set tabstop=2
-set shiftwidth=2
-set expandtab
-set smarttab
-set smartindent
-
-" Ignore compiled files
-set wildmenu
-set wildignore=*.o,*~,*.pyc,.git\*
-
-" Use mouse
-set mouse=a
-
-" Show title
-set title
-
-" Doesn't store useless backup stuff
-set noswapfile
-set nobackup
-set nowritebackup
-
-" Code folding
-set foldmethod=indent
-set foldnestmax=10
-set nofoldenable
-set foldlevel=1
-
-" Scroll before you get to the very end
-set scrolloff=3
-set sidescrolloff=5
-
-" Use F12 as a paste toggle
-set pastetoggle=<leader>p
-
-" Searching
-set ignorecase
-set smartcase
-set incsearch
-set showmatch
-set hlsearch
-set magic
-nnoremap <silent> <leader>n :noh<cr>
-
-" Automatically refreshes file
-set autoread
-
-" History
-set undolevels=1000
-
-" Set long lines to be treated as multiple lines when soft wrapped
-nnoremap j gj
-nnoremap k gk
-
-" Ensure that we are in modern vim mode, not backwards-compatible vi mode
-set nocompatible
-set backspace=indent,eol,start
-
-" Useful metrics
-set ruler
-set noshowmode
-
-" More secure encryption
-set cryptmethod=blowfish
-
-" Enable filetype detection and syntax highlighting
-syntax on
-filetype plugin indent on
-
-" Show multicharacter commands as they are being typed
-set showcmd
+" ==== YouCompleteMe ====
+let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
+let g:ycm_extra_conf_globlist = ['~/dev/*','!~/*']
+let g:ycm_register_as_syntastic_checker = 0
+let g:ycm_autoclose_preview_window_after_completion = 1
