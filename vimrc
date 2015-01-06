@@ -91,20 +91,23 @@ set ttimeoutlen=10
 " Make ~ work like an operator, like d and y
 set tildeop
 
+" Don't increment numbers like they're octal
+set nrformats=hex
+
 " Use F12 as a paste toggle
 set pastetoggle=<leader>p
 
 " Automatically refreshes file
 set autoread
 
-" Better encryption
-set cryptmethod=blowfish
-
 " Use mouse
 set mouse=a
 
 " Show title
 set title
+
+" Better encryption
+set cryptmethod=blowfish
 
 " ============================================================================
 " Utility Keymaps
@@ -193,7 +196,7 @@ endfunction
 nnoremap <silent> <C-\> :call PrintTagTarget()<cr>
 
 " ============================================================================
-" Tabs
+" Indentation
 " ============================================================================
 
 set tabstop=2
@@ -243,7 +246,7 @@ set incsearch
 set showmatch
 set hlsearch
 set magic
-nnoremap <silent> <leader>n :noh<cr>
+nnoremap <silent> <leader>n :nohlsearch<cr>
 
 " ============================================================================
 " Status bar
@@ -251,6 +254,14 @@ nnoremap <silent> <leader>n :noh<cr>
 
 set ruler
 set noshowmode
+
+" ============================================================================
+" Disable bells
+" ============================================================================
+
+set noerrorbells
+set novisualbell
+set t_vb=
 
 " ============================================================================
 " Plugins
