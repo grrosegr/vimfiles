@@ -23,6 +23,7 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Valloric/YouCompleteMe'
 NeoBundle 'bitc/vim-hdevtools'
 NeoBundle 'bling/vim-airline'
+NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'dag/vim2hs'
 NeoBundle 'derekwyatt/vim-fswitch'
 NeoBundle 'eagletmt/neco-ghc'
@@ -32,7 +33,6 @@ NeoBundle 'lilydjwg/colorizer'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
-NeoBundle 'spolu/dwm.vim'
 NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'tpope/vim-commentary'
 NeoBundle 'tpope/vim-endwise'
@@ -235,6 +235,15 @@ set sidescrolloff=5
 " Set long lines to be treated as multiple lines when soft wrapped
 nnoremap j gj
 nnoremap k gk
+
+" ============================================================================
+" Windows
+" ============================================================================
+
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 " ============================================================================
 " Searching

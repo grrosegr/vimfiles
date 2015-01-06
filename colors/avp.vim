@@ -53,17 +53,17 @@ endif
 " Syntax highlighting
 hi Comment guifg=#7C7C7C guibg=NONE gui=NONE ctermfg=gray ctermbg=NONE cterm=NONE
 hi String guifg=#A8FF60 guibg=NONE gui=NONE ctermfg=47 ctermbg=NONE cterm=NONE
-hi Number guifg=#07AADD guibg=NONE gui=NONE ctermfg=75 ctermbg=NONE cterm=NONE
+hi Number guifg=#07AADD guibg=NONE gui=NONE ctermfg=39 ctermbg=NONE cterm=NONE
 
 hi Keyword guifg=#F8A089 guibg=NONE gui=NONE ctermfg=194 ctermbg=NONE cterm=NONE
-hi PreProc guifg=#96CBFE guibg=NONE gui=NONE ctermfg=39 ctermbg=NONE cterm=NONE
-hi Conditional guifg=#B366C6 guibg=NONE gui=NONE ctermfg=194 ctermbg=NONE cterm=NONE " if else end
+hi PreProc guifg=#96CBFE guibg=NONE gui=NONE ctermfg=45 ctermbg=NONE cterm=NONE
+hi Conditional guifg=#FFFFB6 guibg=NONE gui=NONE ctermfg=194 ctermbg=NONE cterm=NONE " if else end
 
 hi Todo guifg=#8f8f8f guibg=NONE gui=NONE ctermfg=black ctermbg=green cterm=NONE
 hi Constant guifg=#99CC99 guibg=NONE gui=NONE ctermfg=cyan ctermbg=NONE cterm=NONE
 
 hi Identifier guifg=#C6C5FE guibg=NONE gui=NONE ctermfg=cyan ctermbg=NONE cterm=NONE
-hi Function guifg=#9AD5C1 guibg=NONE gui=NONE ctermfg=45 ctermbg=NONE cterm=NONE
+hi Function guifg=#9AD5C1 guibg=NONE gui=NONE ctermfg=49 ctermbg=NONE cterm=NONE
 hi Type guifg=#6FB412 guibg=NONE gui=NONE ctermfg=40 ctermbg=NONE cterm=NONE
 hi Statement guifg=#FFFFB6 guibg=NONE gui=NONE ctermfg=194 ctermbg=NONE cterm=NONE
 
