@@ -62,7 +62,7 @@ NeoBundleCheck
 " General Settings
 " ============================================================================
 
-" Ensure that we are in modern vim mode, not backwards-compatible vi mode
+" Ensure that we are in modern vim mode
 set nocompatible
 set backspace=indent,eol,start
 
@@ -77,7 +77,7 @@ set showcmd
 let g:mapleader = "\\"
 
 " Get the current OS
-let os = substitute(system('uname -s'), "\n", "", "")
+let g:os = substitute(system('uname -s'), "\n", "", "")
 
 " Set how many lines of history to remember
 set history=700
@@ -117,7 +117,7 @@ set cryptmethod=blowfish
 nnoremap <leader>w :w<cr>
 nnoremap <leader>W :wall<cr>
 
-" Enable block nav shortcuts when { isn't on the first column.
+" Enable block nav shortcuts when { isn't on the first column
 nmap <silent> [[ ?{<cr>w99[{
 nmap <silent> ][ /}<cr>b99]}
 nmap <silent> ]] j0[[%/{<cr>
@@ -133,8 +133,10 @@ nnoremap <leader>s :%s/\<<c-r><c-w>\>/
 " Line Numbers
 " ============================================================================
 
-" Line numbers (comment out "set relativenumber" if you want normal numbers)
+" Show the current line number
 set number
+
+" For non-current lines, show their relative offsets
 if exists('&relativenumber')
   set relativenumber
 endif
@@ -152,10 +154,10 @@ endif
 colorscheme avp
 set background=dark
 set t_Co=256
-if os == "Linux"
-  set guifont=Inconsolata\ Medium\ 12
-elseif os == "Darwin"
-  set guifont=Inconsolata\ for\ Powerline:h14
+if g:os == "Linux"
+  set guifont="Inconsolata Medium 12"
+elseif g:os == "Darwin"
+  set guifont="Inconsolata for Powerline:h14"
 endif
 
 " ============================================================================
@@ -168,7 +170,7 @@ match ErrorMsg '\s\+\%#\@<!$'
 " Strip trailing whitespace with <leader>S
 nnoremap <silent> <leader>S :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
-" Delete trailing whitespace on save.
+" Delete trailing whitespace on save for c, cpp, java
 autocmd FileType c,cpp,java autocmd BufWritePre * :%s/\s\+$//e
 
 " ============================================================================
@@ -186,6 +188,9 @@ nnoremap <leader>l :ls<cr>:b<space>
 " ============================================================================
 " Tags
 " ============================================================================
+
+" Preview the target of the tag in the bottom bar with <C-\>
+" Useful for things like preprocessor directives.
 function! PrintTagTarget()
   let b:target = expand("<cword>")
   execute "silent tag ".b:target
@@ -208,13 +213,10 @@ set smartindent
 " ============================================================================
 " Backups
 " ============================================================================
+
 set noswapfile
 set nobackup
 set nowritebackup
-
-" Ignore compiled files
-set wildmenu
-set wildignore=*.o,*~,*.pyc,.git\*
 
 " ============================================================================
 " Folding
@@ -249,13 +251,20 @@ nnoremap <C-l> <C-w>l
 " Searching
 " ============================================================================
 
+" Search within files
 set ignorecase
 set smartcase
 set incsearch
 set showmatch
 set hlsearch
 set magic
+
+" Use <leader>n to clear out the highlighting from the search.
 nnoremap <silent> <leader>n :nohlsearch<cr>
+
+" Opening files by searching
+set wildmenu
+set wildignore=*.o,*~,*.pyc,.git\*
 
 " ============================================================================
 " Status bar
@@ -315,7 +324,7 @@ function! s:unite_settings()
   imap <silent><buffer><expr> <C-x> unite#do_action('split')
   imap <silent><buffer><expr> <C-v> unite#do_action('vsplit')
   imap <silent><buffer><expr> <C-t> unite#do_action('tabopen')
-  nmap <buffer> <ESC> <Plug>(unite_exit)
+  nmap <buffer> <esc> <Plug>(unite_exit)
 endfunction
 if executable('ag')
   let g:unite_source_rec_async_command= 'ag --nocolor --nogroup -g ""'
