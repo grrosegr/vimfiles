@@ -20,13 +20,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Valloric/YouCompleteMe'
-NeoBundle 'bitc/vim-hdevtools'
 NeoBundle 'bling/vim-airline'
-NeoBundle 'dag/vim2hs'
-NeoBundle 'derekwyatt/vim-fswitch'
-NeoBundle 'eagletmt/neco-ghc'
-NeoBundle 'justinmk/vim-syntax-extra'
 NeoBundle 'lervag/vim-latex'
 NeoBundle 'lilydjwg/colorizer'
 NeoBundle 'majutsushi/tagbar'
@@ -39,8 +33,7 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-unimpaired'
-NeoBundle 'travitch/hasksyn'
-NeoBundle 'xolox/vim-easytags'
+NeoBundle 'xolox/vim-easytags', {'external-commands': 'ctags'}
 NeoBundle 'xolox/vim-misc'
 
 NeoBundle 'Shougo/vimproc.vim', {
@@ -52,6 +45,27 @@ NeoBundle 'Shougo/vimproc.vim', {
       \     'unix' : 'gmake',
       \    },
       \ }
+
+NeoBundle 'Valloric/YouCompleteMe', {
+      \ 'build' : {
+      \     'mac' : './install.sh --clang-completer --system-libclang',
+      \     'unix' : './install.sh --clang-completer --system-libclang',
+      \     'windows' : './install.sh --clang-completer --system-libclang',
+      \     'cygwin' : './install.sh --clang-completer --system-libclang'
+      \    },
+      \ 'build-commands': 'cmake'
+      \ }
+
+NeoBundleLazy 'bitc/vim-hdevtools', {'autoload': {'filetypes': ['haskell']}}
+NeoBundleLazy 'dag/vim2hs', {'autoload': {'filetypes': ['haskell']}}
+NeoBundleLazy 'travitch/hasksyn', {'autoload': {'filetypes': ['haskell']}}
+NeoBundleLazy 'eagletmt/neco-ghc', {
+      \ 'autoload': {'filetypes': ['haskell']},
+      \ 'external-commands': 'ghc-mod'
+      \ }
+
+NeoBundleLazy 'derekwyatt/vim-fswitch', {'autoload': {'filetypes': ['c', 'cpp']}}
+NeoBundleLazy 'justinmk/vim-syntax-extra', {'autoload': {'filetypes': ['c', 'cpp']}}
 
 call neobundle#end()
 
