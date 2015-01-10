@@ -21,7 +21,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'bling/vim-airline'
-NeoBundle 'lervag/vim-latex'
 NeoBundle 'lilydjwg/colorizer'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'scrooloose/nerdtree'
@@ -66,6 +65,8 @@ NeoBundleLazy 'eagletmt/neco-ghc', {
 
 NeoBundleLazy 'derekwyatt/vim-fswitch', {'autoload': {'filetypes': ['c', 'cpp']}}
 NeoBundleLazy 'justinmk/vim-syntax-extra', {'autoload': {'filetypes': ['c', 'cpp']}}
+
+NeoBundleLazy 'lervag/vim-latex', {'autoload': {'filetypes': ['latex']}}
 
 call neobundle#end()
 
