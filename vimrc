@@ -32,41 +32,39 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-unimpaired'
-NeoBundle 'xolox/vim-easytags', {'external-commands': 'ctags'}
+NeoBundle 'xolox/vim-easytags', {'external_commands': 'ctags'}
 NeoBundle 'xolox/vim-misc'
 
 NeoBundle 'Shougo/vimproc.vim', {
-      \ 'build' : {
-      \     'windows' : 'tools\\update-dll-mingw',
-      \     'cygwin' : 'make -f make_cygwin.mak',
-      \     'mac' : 'make -f make_mac.mak',
-      \     'linux' : 'make',
-      \     'unix' : 'gmake',
+      \ 'build': {
+      \     'windows': 'tools\\update-dll-mingw',
+      \     'cygwin': 'make -f make_cygwin.mak',
+      \     'mac': 'make -f make_mac.mak',
+      \     'linux': 'make',
+      \     'unix': 'gmake',
       \    },
       \ }
 
 NeoBundle 'Valloric/YouCompleteMe', {
-      \ 'build' : {
-      \     'mac' : './install.sh --clang-completer --system-libclang',
-      \     'unix' : './install.sh --clang-completer --system-libclang',
-      \     'windows' : './install.sh --clang-completer --system-libclang',
-      \     'cygwin' : './install.sh --clang-completer --system-libclang'
-      \    },
-      \ 'build-commands': 'cmake'
+      \ 'vim_version': '7.3.584',
+      \ 'disabled': !has('python')
       \ }
 
+" C/C++
+NeoBundleLazy 'derekwyatt/vim-fswitch', {'autoload': {'filetypes': ['c', 'cpp']}}
+NeoBundleLazy 'justinmk/vim-syntax-extra', {'autoload': {'filetypes': ['c', 'cpp']}}
+
+" LaTeX
+NeoBundleLazy 'lervag/vim-latex', {'autoload': {'filetypes': ['latex']}}
+
+" Haskell
 NeoBundleLazy 'bitc/vim-hdevtools', {'autoload': {'filetypes': ['haskell']}}
 NeoBundleLazy 'dag/vim2hs', {'autoload': {'filetypes': ['haskell']}}
 NeoBundleLazy 'travitch/hasksyn', {'autoload': {'filetypes': ['haskell']}}
 NeoBundleLazy 'eagletmt/neco-ghc', {
       \ 'autoload': {'filetypes': ['haskell']},
-      \ 'external-commands': 'ghc-mod'
+      \ 'external_commands': 'ghc-mod'
       \ }
-
-NeoBundleLazy 'derekwyatt/vim-fswitch', {'autoload': {'filetypes': ['c', 'cpp']}}
-NeoBundleLazy 'justinmk/vim-syntax-extra', {'autoload': {'filetypes': ['c', 'cpp']}}
-
-NeoBundleLazy 'lervag/vim-latex', {'autoload': {'filetypes': ['latex']}}
 
 call neobundle#end()
 
