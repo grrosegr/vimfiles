@@ -193,8 +193,8 @@ autocmd FileType c,cpp,java autocmd BufWritePre * :%s/\s\+$//e
 set hidden
 
 " Remap left and right to switch between buffers.
-nnoremap <right> :bn<cr>
-nnoremap <left> :bp<cr>
+nnoremap <silent> <right> :bn<cr>
+nnoremap <silent> <left> :bp<cr>
 nnoremap <leader>l :ls<cr>:b<space>
 
 " ============================================================================

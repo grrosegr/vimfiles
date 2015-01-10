@@ -894,7 +894,7 @@ hi cContracts ctermfg=Yellow
 
 "--------------------------------------------------------------------
 "  if u uncomment this line,
-"  u ought to comment the "finish" 
+"  u ought to comment the "finish"
 "  in .../share/vim/vim72/syntax/c.vim:
 "
 "  if exists("b:current_syntax")
