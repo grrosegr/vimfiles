@@ -210,7 +210,7 @@ function! PrintTagTarget()
   execute "silent pop"
   echom b:line
 endfunction
-nnoremap <silent> <C-\> :call PrintTagTarget()<cr>
+nnoremap <silent> <leader>] :call PrintTagTarget()<cr>
 
 " ============================================================================
 " Indentation
