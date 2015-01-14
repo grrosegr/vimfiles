@@ -317,7 +317,8 @@ let NERDTreeIgnore = ['\~$', '\.o', '\.pyc$']
 nnoremap <leader>e :NERDTreeToggle<cr>
 
 " ==== Syntastic ====
-silent! let g:syntastic_python_checkers = []
+let g:syntastic_python_checkers = []
+let g:syntastic_cpp_include_dirs = ['../include', 'include', '../common']
 
 " ==== Tagbar ====
 nnoremap <leader>t :TagbarOpenAutoClose<cr>
