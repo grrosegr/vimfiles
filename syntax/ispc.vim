@@ -16,7 +16,7 @@ unlet b:current_syntax
 syn keyword ispcStatement cbreak ccontinue creturn launch print reference soa sync task
 syn keyword ispcConditional cif
 syn keyword ispcRepeat  cdo cfor cwhile
-syn keyword ispcBuiltin programCount programIndex 
+syn keyword ispcBuiltin programCount programIndex
 syn keyword ispcType  export uniform varying int8 int16 int32 int64
 syn keyword ispcOperator  operator
 
