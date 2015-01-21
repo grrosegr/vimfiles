@@ -55,7 +55,7 @@ NeoBundleLazy 'derekwyatt/vim-fswitch', {'autoload': {'filetypes': ['c', 'cpp']}
 NeoBundleLazy 'justinmk/vim-syntax-extra', {'autoload': {'filetypes': ['c', 'cpp']}}
 
 " LaTeX
-NeoBundleLazy 'lervag/vim-latex', {'autoload': {'filetypes': ['latex']}}
+NeoBundleLazy 'LaTeX-Box-Team/LaTeX-Box', {'autoload': {'filetypes': ['tex']}}
 
 " Haskell
 NeoBundleLazy 'bitc/vim-hdevtools', {'autoload': {'filetypes': ['haskell']}}
@@ -195,7 +195,6 @@ set hidden
 " Remap left and right to switch between buffers.
 nnoremap <silent> <right> :bn<cr>
 nnoremap <silent> <left> :bp<cr>
-nnoremap <leader>l :ls<cr>:b<space>
 
 " ============================================================================
 " Tags
@@ -314,7 +313,7 @@ nnoremap <leader>fs :FSHere<cr>
 
 " ==== NERDTree ====
 let NERDTreeIgnore = ['\~$', '\.o', '\.pyc$']
-nnoremap <leader>e :NERDTreeToggle<cr>
+nnoremap <leader>r :NERDTreeToggle<cr>
 
 " ==== Syntastic ====
 let g:syntastic_python_checkers = []
