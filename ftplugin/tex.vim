@@ -1,9 +1,9 @@
 " ==== General ====
-set colorcolumn=
-set wrap
-set linebreak
-set nolist
-set breakindent
+setlocal colorcolumn=
+setlocal wrap
+setlocal linebreak
+setlocal nolist
+setlocal breakindent
 
 " ==== TeX specific mappings ====
 imap <buffer> [[ \begin{

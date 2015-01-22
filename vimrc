@@ -183,7 +183,7 @@ match ErrorMsg '\s\+\%#\@<!$'
 nnoremap <silent> <leader>S :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 " Delete trailing whitespace on save for c, cpp, java
-autocmd FileType c,cpp,java autocmd BufWritePre * :%s/\s\+$//e
+autocmd FileType c,cpp,java,tex autocmd BufWritePre * :%s/\s\+$//e
 
 " ============================================================================
 " Buffers
