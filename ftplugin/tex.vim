@@ -19,8 +19,7 @@ nnoremap <buffer> <leader>ea O\begin{align*}<cr>\end{align*}<esc>O
 " ==== LaTeX-Box ====
 let g:LatexBox_latexmk_async = 0
 let g:LatexBox_latexmk_preview_continuously = 1
-let g:LatexBox_latexmk_options
-                        \ = "-pdflatex='pdflatex -synctex=1 \\%O \\%S'"
+let g:LatexBox_latexmk_options = "-pdflatex='pdflatex -synctex=1 \\%O \\%S'"
 let g:LatexBox_output_type = "pdf"
 let g:LatexBox_quickfix = 2
 let g:LatexBox_Folding = 1

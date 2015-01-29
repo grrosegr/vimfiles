@@ -318,6 +318,7 @@ nnoremap <leader>r :NERDTreeToggle<cr>
 " ==== Syntastic ====
 let g:syntastic_python_checkers = []
 let g:syntastic_cpp_include_dirs = ['../include', 'include', '../common']
+let g:syntastic_tex_chktex_args = '-n29'
 
 " ==== Tagbar ====
 nnoremap <leader>t :TagbarOpenAutoClose<cr>

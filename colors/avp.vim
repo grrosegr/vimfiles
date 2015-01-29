@@ -59,7 +59,7 @@ hi Keyword guifg=#F8A089 guibg=NONE gui=NONE ctermfg=194 ctermbg=NONE cterm=NONE
 hi PreProc guifg=#96CBFE guibg=NONE gui=NONE ctermfg=45 ctermbg=NONE cterm=NONE
 hi Conditional guifg=#FFFFB6 guibg=NONE gui=NONE ctermfg=194 ctermbg=NONE cterm=NONE " if else end
 
-hi Todo guifg=#8f8f8f guibg=NONE gui=NONE ctermfg=black ctermbg=green cterm=NONE
+hi Todo guifg=#000000 guibg=#00ff00 gui=NONE ctermfg=black ctermbg=green cterm=NONE
 hi Constant guifg=#99CC99 guibg=NONE gui=NONE ctermfg=cyan ctermbg=NONE cterm=NONE
 
 hi Identifier guifg=#C6C5FE guibg=NONE gui=NONE ctermfg=cyan ctermbg=NONE cterm=NONE
