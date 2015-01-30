@@ -63,10 +63,15 @@ syn keyword cudaConstant  cudaChannelFormatKindSigned
 syn keyword cudaConstant  cudaChannelFormatKindUnsigned
 syn keyword cudaConstant  cudaChannelFormatKindFloat
 
+" Builtin functions
+syn keyword cudaFunction  cudaMalloc cudaFree
+syn keyword cudaFunction  cudaMemcpy
+
 hi def link cudaStorageClass  StorageClass
 hi def link cudaStructure Structure
 hi def link cudaType    Type
 hi def link cudaVariable  Identifier
 hi def link cudaConstant  Constant
+hi def link cudaFunction  Function
 
 let b:current_syntax = "cuda"
