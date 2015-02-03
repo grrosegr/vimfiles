@@ -172,6 +172,10 @@ elseif g:os == "Darwin"
   set guifont="Inconsolata for Powerline:h14"
 endif
 
+" Python shiftwidth
+autocmd FileType python set shiftwidth=2
+autocmd FileType python set tabstop=2
+
 " ============================================================================
 " Trailing whitespace
 " ============================================================================
