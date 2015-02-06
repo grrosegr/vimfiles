@@ -121,6 +121,9 @@ set title
 " Better encryption
 set cryptmethod=blowfish
 
+" Use LaTeX instead of TeX
+let g:tex_flavor="latex"
+
 " ============================================================================
 " Utility Keymaps
 " ============================================================================

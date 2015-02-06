@@ -4,6 +4,7 @@ setlocal wrap
 setlocal linebreak
 setlocal nolist
 setlocal breakindent
+setlocal spell spelllang=en_us " Spellcheck
 
 " ==== TeX specific mappings ====
 imap <buffer> [[ \begin{
@@ -11,6 +12,9 @@ imap <buffer> ]] <Plug>LatexCloseCurEnv
 nmap <buffer> <F5> <Plug>LatexChangeEnv
 vmap <buffer> <F7> <Plug>LatexWrapSelection
 vmap <buffer> <F7> <Plug>LatexEnvWrapSelection
+
+imap <buffer> <C-b> \textbf{
+vmap <buffer> <C-b> c\textbf{<C-r>"}<esc>
 
 " ==== Environments ====
 nnoremap <buffer> <leader>ee O\begin{enumerate}<cr>\end{enumerate}<esc>O\item<space>
