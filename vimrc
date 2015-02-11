@@ -21,16 +21,11 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'bling/vim-airline'
-NeoBundle 'lilydjwg/colorizer'
-NeoBundle 'majutsushi/tagbar'
-NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
-NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'tpope/vim-commentary'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-repeat'
-NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'xolox/vim-easytags', {'external_commands': 'ctags'}
 NeoBundle 'xolox/vim-misc'
@@ -175,10 +170,6 @@ elseif g:os == "Darwin"
   set guifont="Inconsolata for Powerline:h14"
 endif
 
-" Python shiftwidth
-autocmd FileType python set shiftwidth=2
-autocmd FileType python set tabstop=2
-
 " ============================================================================
 " Trailing whitespace
 " ============================================================================
@@ -227,6 +218,10 @@ set shiftwidth=2
 set expandtab
 set smarttab
 set smartindent
+
+" Python shiftwidth
+autocmd FileType python set shiftwidth=2
+autocmd FileType python set tabstop=2
 
 " ============================================================================
 " Backups
@@ -318,17 +313,10 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 " ==== FSwitch ====
 nnoremap <leader>fs :FSHere<cr>
 
-" ==== NERDTree ====
-let NERDTreeIgnore = ['\~$', '\.o', '\.pyc$']
-nnoremap <leader>r :NERDTreeToggle<cr>
-
 " ==== Syntastic ====
 let g:syntastic_python_checkers = []
 let g:syntastic_cpp_include_dirs = ['../include', 'include', '../common']
 let g:syntastic_tex_chktex_args = '-n29'
-
-" ==== Tagbar ====
-nnoremap <leader>t :TagbarOpenAutoClose<cr>
 
 " ==== Unite ====
 " Options
