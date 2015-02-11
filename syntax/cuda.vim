@@ -65,7 +65,7 @@ syn keyword cudaConstant  cudaChannelFormatKindFloat
 
 " Builtin functions
 syn keyword cudaFunction  cudaMalloc cudaFree
-syn keyword cudaFunction  cudaMemcpy
+syn keyword cudaFunction  cudaMemcpy cudaMemset
 
 hi def link cudaStorageClass  StorageClass
 hi def link cudaStructure Structure
