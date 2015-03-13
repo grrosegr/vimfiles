@@ -21,6 +21,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'bling/vim-airline'
+NeoBundle 'justinmk/vim-sneak'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'tpope/vim-commentary'
 NeoBundle 'tpope/vim-endwise'
@@ -316,6 +317,9 @@ let g:easytags_async = 1
 
 " ==== FSwitch ====
 nnoremap <leader>fs :FSHere<cr>
+
+" ==== Sneak ====
+let g:sneak#streak = 1
 
 " ==== Syntastic ====
 let g:syntastic_python_checkers = []
