@@ -3,7 +3,6 @@ setlocal colorcolumn=120
 setlocal wrap
 setlocal linebreak
 setlocal nolist
-setlocal breakindent
 setlocal spell spelllang=en_us " Spellcheck
 
 " ==== TeX specific mappings ====
@@ -32,7 +31,7 @@ if g:os == "Linux"
   let g:LatexBox_viewer = "xdg-open"
 elseif g:os == "Darwin"
   let g:LatexBox_viewer = "open -a Skim"
-  nnoremap <silent><buffer> <leader>ls :silent
+  nnoremap <silent><buffer> \ls :silent
         \ !/Applications/Skim.app/Contents/SharedSupport/displayline -g
         \ <C-R>=line('.')<CR> "<C-R>=LatexBox_GetOutputFile()<CR>"
         \ "%:p" <CR>

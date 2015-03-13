@@ -83,7 +83,7 @@ filetype plugin indent on
 set showcmd
 
 " Use the \ as a leader
-let g:mapleader = "\\"
+let g:mapleader = "\<space>"
 
 " Get the current OS
 let g:os = substitute(system('uname -s'), "\n", "", "")
@@ -127,6 +127,7 @@ let g:tex_flavor="latex"
 
 " Fast saving
 nnoremap <leader>w :w<cr>
+nnoremap \w :w<cr>
 nnoremap <leader>W :wall<cr>
 
 " Enable block nav shortcuts when { isn't on the first column
@@ -140,6 +141,9 @@ nnoremap <silent> <leader>R :so ~/.vimrc<cr>
 
 " Substitute all word under cursor.
 nnoremap <leader>s :%s/\<<c-r><c-w>\>/
+
+" More logical mapping for Y (yy still yanks an entire line)
+nnoremap Y y$
 
 " ============================================================================
 " Line Numbers
