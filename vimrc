@@ -44,7 +44,8 @@ NeoBundle 'Shougo/vimproc.vim', {
 
 NeoBundle 'Valloric/YouCompleteMe', {
       \ 'vim_version': '7.3.584',
-      \ 'disabled': !has('python')
+      \ 'disabled': !has('python'),
+      \ 'stay_same': 1
       \ }
 
 " C/C++
@@ -144,6 +145,9 @@ nnoremap <leader>s :%s/\<<c-r><c-w>\>/
 
 " More logical mapping for Y (yy still yanks an entire line)
 nnoremap Y y$
+
+" cd to current directory
+nnoremap <silent> <leader>cd :lcd %:p:h<cr>
 
 " ============================================================================
 " Line Numbers
