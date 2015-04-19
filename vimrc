@@ -138,7 +138,7 @@ nmap <silent> ]] j0[[%/{<cr>
 nmap <silent> [] k$][%?}<cr>
 
 " Quick reload of vimrc
-nnoremap <silent> <leader>R :so ~/.vimrc<cr>
+nnoremap <silent> <leader>R :source $MYVIMRC<cr>
 
 " Substitute all word under cursor.
 nnoremap <leader>s :%s/\<<c-r><c-w>\>/
@@ -355,7 +355,9 @@ function! s:unite_settings()
   nmap <buffer> <esc> <Plug>(unite_exit)
 endfunction
 if executable('ag')
-  let g:unite_source_rec_async_command= 'ag --nocolor --nogroup -g ""'
+  let g:unite_source_rec_async_command='ag --nocolor --nogroup -g ""'
+  let g:unite_source_grep_command='ag'
+  let g:unite_source_grep_default_opts='--line-numbers --nocolor --nogroup --smart-case'
 endif
 call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
       \ 'ignore_pattern', join([
