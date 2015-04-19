@@ -10,10 +10,13 @@ imap <buffer> [[ \begin{
 imap <buffer> ]] <Plug>LatexCloseCurEnv
 nmap <buffer> <F5> <Plug>LatexChangeEnv
 vmap <buffer> <F7> <Plug>LatexWrapSelection
-vmap <buffer> <F7> <Plug>LatexEnvWrapSelection
+vmap <buffer> <S-F7> <Plug>LatexEnvWrapSelection
 
+" ==== Rich text mappings ====
 imap <buffer> <C-b> \textbf{
 vmap <buffer> <C-b> c\textbf{<C-r>"}<esc>
+imap <buffer> <C-i> \textit{
+vmap <buffer> <C-i> c\textit{<C-r>"}<esc>
 
 " ==== Environments ====
 nnoremap <buffer> <leader>ee O\begin{enumerate}<cr>\end{enumerate}<esc>O\item<space>
@@ -28,7 +31,18 @@ let g:LatexBox_quickfix = 2
 let g:LatexBox_Folding = 1
 
 if g:os == "Linux"
-  let g:LatexBox_viewer = "xdg-open"
+  let g:LatexBox_viewer = "okular"
+  function! LatexEvinceSearch()
+    let s:syncfile = LatexBox_GetOutputFile()
+    let execstr = "silent !okular --unique --noraise " .
+          \ s:syncfile .
+          \ "\\#src:" .
+          \ line(".") .
+          \ expand("%\:p") .
+          \ ' &'
+    exec execstr
+  endfun
+  nnoremap <silent><buffer> \ls :call LatexEvinceSearch()<cr>
 elseif g:os == "Darwin"
   let g:LatexBox_viewer = "open -a Skim"
   nnoremap <silent><buffer> \ls :silent
