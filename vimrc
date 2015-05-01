@@ -32,6 +32,9 @@ NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'xolox/vim-easytags', {'external_commands': 'ctags'}
 NeoBundle 'xolox/vim-misc'
 
+NeoBundle 'SirVer/ultisnips'
+NeoBundle 'honza/vim-snippets'
+
 NeoBundle 'Shougo/vimproc.vim', {
       \ 'build': {
       \     'windows': 'tools\\update-dll-mingw',
@@ -334,6 +337,11 @@ let g:syntastic_python_checkers = []
 let g:syntastic_cpp_include_dirs = ['../include', 'include', '../common']
 let g:syntastic_tex_chktex_args = '-n29'
 let g:syntastic_always_populate_loc_list = 1
+
+" ==== UltiSnips ====
+let g:UltiSnipsExpandTrigger="<C-j>"
+let g:UltiSnipsJumpForwardTrigger="<C-b>"
+let g:UltiSnipsJumpBackwardTrigger="<C-z>"
 
 " ==== Unite ====
 " Options

@@ -15,8 +15,8 @@ vmap <buffer> <S-F7> <Plug>LatexEnvWrapSelection
 " ==== Rich text mappings ====
 imap <buffer> <C-b> \textbf{
 vmap <buffer> <C-b> c\textbf{<C-r>"}<esc>
-imap <buffer> <C-i> \textit{
-vmap <buffer> <C-i> c\textit{<C-r>"}<esc>
+imap <buffer> <C-e> \textit{
+vmap <buffer> <C-e> c\textit{<C-r>"}<esc>
 
 " ==== Environments ====
 nnoremap <buffer> <leader>ee O\begin{enumerate}<cr>\end{enumerate}<esc>O\item<space>
