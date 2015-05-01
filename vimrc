@@ -20,6 +20,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'justinmk/vim-sneak'
 NeoBundle 'scrooloose/syntastic'
