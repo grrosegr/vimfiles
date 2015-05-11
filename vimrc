@@ -335,6 +335,8 @@ let g:sneak#streak = 1
 
 " ==== Syntastic ====
 let g:syntastic_python_checkers = []
+let g:syntastic_cpp_compiler = 'g++'
+let g:syntastic_cpp_compiler_options = '-std=c++11'
 let g:syntastic_cpp_include_dirs = ['../include', 'include', '../common']
 let g:syntastic_tex_chktex_args = '-n29'
 let g:syntastic_always_populate_loc_list = 1

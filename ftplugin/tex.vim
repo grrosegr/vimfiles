@@ -42,10 +42,10 @@ if g:os == "Linux"
           \ ' &'
     exec execstr
   endfun
-  nnoremap <silent><buffer> \ls :call LatexEvinceSearch()<cr>
+  nnoremap <silent><buffer> <LocalLeader>ls :call LatexEvinceSearch()<cr>
 elseif g:os == "Darwin"
   let g:LatexBox_viewer = "open -a Skim"
-  nnoremap <silent><buffer> \ls :silent
+  nnoremap <silent><buffer> <LocalLeader>ls :silent
         \ !/Applications/Skim.app/Contents/SharedSupport/displayline -g
         \ <C-R>=line('.')<CR> "<C-R>=LatexBox_GetOutputFile()<CR>"
         \ "%:p" <CR>
