@@ -109,7 +109,7 @@ set tildeop
 set nrformats=hex
 
 " Use F12 as a paste toggle
-set pastetoggle=<leader>p
+set pastetoggle=<F12>
 
 " Automatically refreshes file
 set autoread
@@ -152,6 +152,9 @@ nnoremap Y y$
 
 " cd to current directory
 nnoremap <silent> <leader>cd :lcd %:p:h<cr>
+
+" Evaluate selection
+vmap <silent> <leader>e c<C-r>=<C-r>"<CR><ESC>
 
 " ============================================================================
 " Line Numbers
