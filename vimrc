@@ -32,6 +32,7 @@ NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'xolox/vim-easytags', {'external_commands': 'ctags'}
 NeoBundle 'xolox/vim-misc'
+NeoBundle 'xolox/vim-notes'
 
 NeoBundle 'SirVer/ultisnips'
 NeoBundle 'honza/vim-snippets'
@@ -67,6 +68,10 @@ NeoBundleLazy 'eagletmt/neco-ghc', {
       \ 'autoload': {'filetypes': ['haskell']},
       \ 'external_commands': 'ghc-mod'
       \ }
+
+" PHP
+NeoBundle 'hhvm/vim-hack'
+NeoBundle 'mxw/vim-xhp'
 
 call neobundle#end()
 
@@ -116,6 +121,10 @@ set autoread
 
 " Use mouse
 set mouse=a
+set ttymouse=sgr
+
+" Setup fast terminal settings
+set ttyfast
 
 " Show title
 set title
@@ -182,6 +191,11 @@ if exists('&colorcolumn')
   set colorcolumn=80,100
   highlight ColorColumn ctermbg=darkgray guibg=#222222
 endif
+
+" Colors
+colorscheme avp
+set background=dark
+set t_Co=256
 
 " Fonts
 if g:os == "Linux"
