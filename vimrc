@@ -172,15 +172,18 @@ endif
 " Appearance
 " ============================================================================
 
-" 80/100 character line guide
-if exists('&colorcolumn')
-  set colorcolumn=80,100
-endif
-
 " Colors
 colorscheme avp
 set background=dark
 set t_Co=256
+
+" 80/100 character line guide
+if exists('&colorcolumn')
+  set colorcolumn=80,100
+  highlight ColorColumn ctermbg=darkgray guibg=#222222
+endif
+
+" Fonts
 if g:os == "Linux"
   set guifont="Inconsolata Medium 12"
 elseif g:os == "Darwin"
@@ -197,7 +200,7 @@ match ErrorMsg '\s\+\%#\@<!$'
 " Strip trailing whitespace with <leader>S
 nnoremap <silent> <leader>S :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
-" Delete trailing whitespace on save for c, cpp, java
+" Delete trailing whitespace on save for select filetypes.
 autocmd FileType c,cpp,java,tex autocmd BufWritePre * :%s/\s\+$//e
 
 " ============================================================================
@@ -305,6 +308,7 @@ set wildignore=*.o,*~,*.pyc,.git\*
 
 set ruler
 set noshowmode
+set cmdheight=1
 
 " ============================================================================
 " Disable bells
