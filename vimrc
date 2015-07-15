@@ -185,17 +185,18 @@ endif
 colorscheme avp
 set background=dark
 set t_Co=256
-
-" 80/100 character line guide
-if exists('&colorcolumn')
-  set colorcolumn=80,100
-  highlight ColorColumn ctermbg=darkgray guibg=#222222
-endif
+set fillchars+=vert:│
 
 " Colors
 colorscheme avp
 set background=dark
 set t_Co=256
+
+" 80/100 character line guide
+if exists('&colorcolumn')
+  set colorcolumn=80,100
+  hi ColorColumn ctermbg=darkgray guibg=#202020
+endif
 
 " Fonts
 if g:os == "Linux"

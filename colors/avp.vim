@@ -19,7 +19,7 @@ hi NonText guifg=#070707 guibg=black gui=NONE ctermfg=black ctermbg=NONE cterm=N
 hi Cursor guifg=black guibg=white gui=NONE ctermfg=black ctermbg=white cterm=reverse
 hi LineNr guifg=#5A5A5A guibg=black gui=NONE ctermfg=darkgray ctermbg=NONE cterm=NONE
 
-hi VertSplit guifg=#202020 guibg=#202020 gui=NONE ctermfg=darkgray ctermbg=darkgray cterm=NONE
+hi VertSplit guifg=#202020 guibg=#202020 gui=NONE ctermfg=darkgray ctermbg=NONE cterm=NONE
 hi StatusLine guifg=#CCCCCC guibg=#202020 gui=italic ctermfg=white ctermbg=darkgray cterm=NONE
 hi StatusLineNC guifg=black guibg=#202020 gui=NONE ctermfg=blue ctermbg=darkgray cterm=NONE
 
