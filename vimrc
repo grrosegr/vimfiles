@@ -121,7 +121,9 @@ set autoread
 
 " Use mouse
 set mouse=a
-set ttymouse=sgr
+if has('mouse_sgr')
+  set ttymouse=sgr
+endif
 
 " Setup fast terminal settings
 set ttyfast
@@ -186,11 +188,6 @@ colorscheme avp
 set background=dark
 set t_Co=256
 set fillchars+=vert:│
-
-" Colors
-colorscheme avp
-set background=dark
-set t_Co=256
 
 " 80/100 character line guide
 if exists('&colorcolumn')
