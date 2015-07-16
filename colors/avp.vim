@@ -9,15 +9,13 @@ endif
 
 let colors_name = "avp"
 
-
-"hi Example guifg=NONE guibg=NONE gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE
-
 " General colors
 hi Normal guifg=#FFCC00 guibg=black gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE
 hi NonText guifg=#070707 guibg=black gui=NONE ctermfg=black ctermbg=NONE cterm=NONE
 
 hi Cursor guifg=black guibg=white gui=NONE ctermfg=black ctermbg=white cterm=reverse
-hi LineNr guifg=#5A5A5A guibg=black gui=NONE ctermfg=darkgray ctermbg=NONE cterm=NONE
+hi LineNr guifg=#6C6C6C guibg=black gui=NONE ctermfg=242 ctermbg=NONE cterm=NONE
+hi CursorLineNr guifg=#5FFF00 guibg=black gui=NONE ctermfg=82 ctermbg=NONE cterm=NONE
 
 hi VertSplit guifg=#202020 guibg=#202020 gui=NONE ctermfg=darkgray ctermbg=NONE cterm=NONE
 hi StatusLine guifg=#CCCCCC guibg=#202020 gui=italic ctermfg=white ctermbg=darkgray cterm=NONE
@@ -159,6 +157,3 @@ hi link pythonStatement Statement
 
 " Special for CSharp
 hi link csXmlTag Keyword
-
-
-" Special for PHP
