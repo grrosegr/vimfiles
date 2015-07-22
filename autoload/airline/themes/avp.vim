@@ -2,7 +2,7 @@ let g:airline#themes#avp#palette = {}
 
 let s:N1   = [ '#000000' , '#00d700' , 16  , 40  ]
 let s:N2   = [ '#eeeeee' , '#005f00' , 255 , 22  ]
-let s:N3   = [ '#00af00' , '#1c1c1c' , 34  , 234 ]
+let s:N3   = [ '#00d700' , '#1c1c1c' , 40  , 234 ]
 let g:airline#themes#avp#palette.normal = airline#themes#generate_color_map(s:N1, s:N2, s:N3)
 
 let g:airline#themes#avp#palette.normal_modified = {
@@ -12,7 +12,7 @@ let g:airline#themes#avp#palette.normal_modified = {
 
 let s:I1 = [ '#00005f' , '#00d7ff' , 17  , 45  ]
 let s:I2 = [ '#eeeeee' , '#005fff' , 255 , 27  ]
-let s:I3 = [ '#005fff' , '#1c1c1c' , 27  , 234 ]
+let s:I3 = [ '#00d7ff' , '#1c1c1c' , 45  , 234 ]
 let g:airline#themes#avp#palette.insert = airline#themes#generate_color_map(s:I1, s:I2, s:I3)
 let g:airline#themes#avp#palette.insert_modified = {
       \ 'airline_c': [ '#ffffff' , '#4e4e4e' , 231     , 239     , ''     ] ,
