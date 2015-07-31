@@ -22,7 +22,9 @@ NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'bling/vim-airline'
+NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'justinmk/vim-sneak'
+NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'tpope/vim-commentary'
 NeoBundle 'tpope/vim-endwise'
@@ -202,6 +204,9 @@ elseif g:os == "Darwin"
   set guifont="Inconsolata for Powerline:h14"
 endif
 
+" Redraw screen
+nnoremap <leader>r :redraw!<cr>
+
 " ============================================================================
 " Trailing whitespace
 " ============================================================================
@@ -349,6 +354,10 @@ let g:easytags_async = 1
 " ==== FSwitch ====
 nnoremap <leader>fs :FSHere<cr>
 
+" ==== NERDTree ====
+let NERDTreeQuitOnOpen = 1
+nnoremap <leader>t :NERDTreeToggle<cr>
+
 " ==== Sneak ====
 let g:sneak#streak = 1
 
@@ -396,7 +405,7 @@ call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
 " Bindings
 nnoremap <C-p> :<C-u>Unite -buffer-name=files -start-insert buffer file_rec/async:!<cr>
 nnoremap <leader>/ :<C-u>Unite -start-insert grep:.<cr>
-nnoremap <leader>b :<C-u>Unite -quick-match buffer<cr>
+nnoremap <leader>b :<C-u>Unite -start-insert buffer<cr>
 nnoremap <leader>y :<C-u>Unite -buffer-name=yank history/yank<cr>
 
 " ==== YouCompleteMe ====
