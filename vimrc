@@ -194,7 +194,7 @@ set fillchars+=vert:│
 " 80/100 character line guide
 if exists('&colorcolumn')
   set colorcolumn=80,100
-  hi ColorColumn ctermbg=darkgray guibg=#202020
+  hi ColorColumn ctermbg=darkgray guibg=#444444
 endif
 
 " Fonts
@@ -215,7 +215,7 @@ nnoremap <leader>r :redraw!<cr>
 match ErrorMsg '\s\+\%#\@<!$'
 
 " Strip trailing whitespace with <leader>S
-nnoremap <silent> <leader>S :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+nnoremap <silent> <leader>S :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR><C-o>
 
 " Delete trailing whitespace on save for select filetypes.
 autocmd FileType c,cpp,java,tex autocmd BufWritePre * :%s/\s\+$//e
@@ -357,6 +357,7 @@ nnoremap <leader>fs :FSHere<cr>
 " ==== NERDTree ====
 let NERDTreeQuitOnOpen = 1
 nnoremap <leader>t :NERDTreeToggle<cr>
+nnoremap <leader>e :edit .<cr>
 
 " ==== Sneak ====
 let g:sneak#streak = 1
