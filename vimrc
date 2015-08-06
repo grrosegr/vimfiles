@@ -200,9 +200,9 @@ endif
 
 " Fonts
 if g:os == "Linux"
-  set guifont="Inconsolata Medium 12"
+  set guifont=Inconsolata\ Medium\ 12
 elseif g:os == "Darwin"
-  set guifont="Inconsolata for Powerline:h14"
+  set guifont=Inconsolata\ for\ Powerline:h14,Monaco:h14
 endif
 
 " Redraw screen
