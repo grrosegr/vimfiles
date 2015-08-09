@@ -278,6 +278,9 @@ set foldnestmax=10
 set nofoldenable
 set foldlevel=1
 
+" Don't open folds on certain motions
+set foldopen-=block
+
 " ============================================================================
 " Scrolling
 " ============================================================================
