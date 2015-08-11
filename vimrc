@@ -96,8 +96,8 @@ filetype plugin indent on
 " Show multicharacter commands as they are being typed
 set showcmd
 
-" Use the \ as a leader
-let g:mapleader = "\<space>"
+" Use the space as a leader
+let g:mapleader = " "
 
 " Get the current OS
 let g:os = substitute(system('uname -s'), "\n", "", "")
@@ -216,11 +216,19 @@ nnoremap <leader>r :redraw!<cr>
 " Highlight trailing whitespace.
 match ErrorMsg '\s\+\%#\@<!$'
 
+function! StripTrailingWhitespace()
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    call cursor(l, c)
+endfun
+
 " Strip trailing whitespace with <leader>S
-nnoremap <silent> <leader>S :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR><C-o>
+nnoremap <silent> <leader>S :call StripTrailingWhitespace()<cr>
 
 " Delete trailing whitespace on save for select filetypes.
-autocmd FileType c,cpp,java,tex autocmd BufWritePre * :%s/\s\+$//e
+autocmd FileType c,cpp,java,tex
+      \ autocmd BufWritePre * :call StripTrailingWhitespace()<cr>
 
 " ============================================================================
 " Buffers
