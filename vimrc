@@ -35,6 +35,7 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'tpope/vim-vinegar'
+NeoBundle 'unblevable/quick-scope'
 NeoBundle 'xolox/vim-easytags', {'external_commands': 'ctags'}
 NeoBundle 'xolox/vim-misc'
 NeoBundle 'xolox/vim-notes'
@@ -372,6 +373,28 @@ nnoremap <leader>fs :FSHere<cr>
 let NERDTreeQuitOnOpen = 1
 nnoremap <leader>t :NERDTreeToggle<cr>
 nnoremap <leader>e :edit .<cr>
+
+" ==== Quickscope ====
+let g:qs_enable = 0
+let g:qs_enable_char_list = [ 'f', 'F', 't', 'T' ]
+
+function! Quick_scope_selective(movement)
+    let needs_disabling = 0
+    if !g:qs_enable
+        QuickScopeToggle
+        redraw
+        let needs_disabling = 1
+    endif
+    let letter = nr2char(getchar())
+    if needs_disabling
+        QuickScopeToggle
+    endif
+    return a:movement . letter
+endfunction
+
+for i in g:qs_enable_char_list
+  execute 'noremap <expr> <silent>' . i . " Quick_scope_selective('". i . "')"
+endfor
 
 " ==== Sneak ====
 let g:sneak#streak = 1
