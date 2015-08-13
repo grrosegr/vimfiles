@@ -10,3 +10,4 @@ bundle/*
 .neobundle/
 .cache/
 spell/
+session/

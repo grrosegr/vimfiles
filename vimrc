@@ -24,6 +24,7 @@ NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'justinmk/vim-sneak'
+NeoBundle 'mhinz/vim-startify'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'tpope/vim-abolish'
@@ -374,6 +375,22 @@ nnoremap <leader>e :edit .<cr>
 
 " ==== Sneak ====
 let g:sneak#streak = 1
+
+" ==== Startify ====
+let g:startify_session_persistence = 1
+let g:startify_bookmarks = [
+      \ '~/.vimrc',
+      \ '~/zshfiles/zshrc',
+      \ '~/zshfiles/avp.zsh'
+      \ ]
+let g:startify_custom_header =  [
+      \ '     _   ________  ___',
+      \ '    | | / /  _/  |/  /',
+      \ '    | |/ // // /|_/ /',
+      \ '    |___/___/_/  /_/',
+      \ '',
+      \ '',
+      \ ]
 
 " ==== Syntastic ====
 let g:syntastic_python_checkers = []
