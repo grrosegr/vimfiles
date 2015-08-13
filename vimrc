@@ -228,7 +228,7 @@ nnoremap <silent> <leader>S :call StripTrailingWhitespace()<cr>
 
 " Delete trailing whitespace on save for select filetypes.
 autocmd FileType c,cpp,java,tex
-      \ autocmd BufWritePre * :call StripTrailingWhitespace()<cr>
+      \ autocmd BufWritePre * :call StripTrailingWhitespace()
 
 " ============================================================================
 " Buffers
