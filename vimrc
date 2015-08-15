@@ -414,6 +414,7 @@ let g:startify_custom_header =  [
       \ '',
       \ '',
       \ ]
+hi link StartifyHeader String
 
 " ==== Syntastic ====
 let g:syntastic_python_checkers = []
