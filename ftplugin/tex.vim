@@ -3,7 +3,7 @@ setlocal colorcolumn=120
 setlocal wrap
 setlocal linebreak
 setlocal nolist
-setlocal spell spelllang=en_us " Spellcheck
+setlocal spell spelllang=en_us
 
 " ==== TeX specific mappings ====
 imap <buffer> [[ \begin{
@@ -32,7 +32,7 @@ let g:LatexBox_Folding = 1
 
 if g:os == "Linux"
   let g:LatexBox_viewer = "okular"
-  function! LatexEvinceSearch()
+  function! LatexOkularSearch()
     let s:syncfile = LatexBox_GetOutputFile()
     let execstr = "silent !okular --unique --noraise " .
           \ s:syncfile .
@@ -42,7 +42,7 @@ if g:os == "Linux"
           \ ' &'
     exec execstr
   endfun
-  nnoremap <silent><buffer> <LocalLeader>ls :call LatexEvinceSearch()<cr>
+  nnoremap <silent><buffer> <LocalLeader>ls :call LatexOkularSearch()<cr>
 elseif g:os == "Darwin"
   let g:LatexBox_viewer = "open -a Skim"
   nnoremap <silent><buffer> <LocalLeader>ls :silent

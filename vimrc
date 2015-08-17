@@ -29,7 +29,6 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'tpope/vim-abolish'
 NeoBundle 'tpope/vim-commentary'
-NeoBundle 'tpope/vim-endwise'
 NeoBundle 'tpope/vim-eunuch'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-repeat'
@@ -38,7 +37,6 @@ NeoBundle 'tpope/vim-vinegar'
 NeoBundle 'unblevable/quick-scope'
 NeoBundle 'xolox/vim-easytags', {'external_commands': 'ctags'}
 NeoBundle 'xolox/vim-misc'
-NeoBundle 'xolox/vim-notes'
 
 NeoBundle 'SirVer/ultisnips'
 NeoBundle 'honza/vim-snippets'
@@ -76,8 +74,8 @@ NeoBundleLazy 'eagletmt/neco-ghc', {
       \ }
 
 " PHP
-NeoBundle 'hhvm/vim-hack'
-NeoBundle 'mxw/vim-xhp'
+NeoBundleLazy 'hhvm/vim-hack', {'autoload': {'filetypes': ['php']}}
+NeoBundleLazy 'mxw/vim-xhp', {'autoload': {'filetypes': ['php']}}
 
 call neobundle#end()
 
@@ -219,17 +217,17 @@ nnoremap <leader>r :redraw!<cr>
 match ErrorMsg '\s\+\%#\@<!$'
 
 function! StripTrailingWhitespace()
-    let l = line(".")
-    let c = col(".")
-    %s/\s\+$//e
-    call cursor(l, c)
+  let l = line(".")
+  let c = col(".")
+  %s/\s\+$//e
+  call cursor(l, c)
 endfun
 
 " Strip trailing whitespace with <leader>S
 nnoremap <silent> <leader>S :call StripTrailingWhitespace()<cr>
 
 " Delete trailing whitespace on save for select filetypes.
-autocmd FileType c,cpp,java,tex
+autocmd FileType c,cpp,java,tex,php,haskell,ruby
       \ autocmd BufWritePre * :call StripTrailingWhitespace()
 
 " ============================================================================
