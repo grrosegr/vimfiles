@@ -127,9 +127,6 @@ set tildeop
 " Don't increment numbers like they're octal
 set nrformats=hex
 
-" Make _ a word boundary
-set iskeyword-=_
-
 " Use F12 as a paste toggle
 set pastetoggle=<F12>
 
