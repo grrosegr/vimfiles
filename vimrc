@@ -38,8 +38,12 @@ NeoBundle 'unblevable/quick-scope'
 NeoBundle 'xolox/vim-easytags', {'external_commands': 'ctags'}
 NeoBundle 'xolox/vim-misc'
 
-NeoBundle 'SirVer/ultisnips'
-NeoBundle 'honza/vim-snippets'
+NeoBundle 'SirVer/ultisnips', {
+      \ 'disabled': !has('python'),
+      \ }
+NeoBundle 'honza/vim-snippets', {
+      \ 'disabled': !has('python'),
+      \ }
 
 NeoBundle 'Shougo/vimproc.vim', {
       \ 'build': {
@@ -58,8 +62,12 @@ NeoBundle 'Valloric/YouCompleteMe', {
       \ }
 
 " C/C++
-NeoBundleLazy 'derekwyatt/vim-fswitch', {'autoload': {'filetypes': ['c', 'cpp']}}
-NeoBundleLazy 'justinmk/vim-syntax-extra', {'autoload': {'filetypes': ['c', 'cpp']}}
+NeoBundleLazy 'derekwyatt/vim-fswitch', {
+      \ 'autoload': {'filetypes': ['c', 'cpp']}
+      \ }
+NeoBundleLazy 'justinmk/vim-syntax-extra', {
+      \ 'autoload': {'filetypes': ['c', 'cpp']}
+      \ }
 
 " LaTeX
 NeoBundleLazy 'LaTeX-Box-Team/LaTeX-Box', {'autoload': {'filetypes': ['tex']}}
@@ -116,6 +124,9 @@ set tildeop
 
 " Don't increment numbers like they're octal
 set nrformats=hex
+
+" Make _ a word boundary
+set iskeyword-=_
 
 " Use F12 as a paste toggle
 set pastetoggle=<F12>
