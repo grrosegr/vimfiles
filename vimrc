@@ -27,6 +27,7 @@ NeoBundle 'justinmk/vim-sneak'
 NeoBundle 'mhinz/vim-startify'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
+NeoBundle 'sjl/splice.vim'
 NeoBundle 'tpope/vim-abolish'
 NeoBundle 'tpope/vim-commentary'
 NeoBundle 'tpope/vim-eunuch'
@@ -36,13 +37,6 @@ NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'tpope/vim-vinegar'
 NeoBundle 'xolox/vim-easytags', {'external_commands': 'ctags'}
 NeoBundle 'xolox/vim-misc'
-
-NeoBundle 'SirVer/ultisnips', {
-      \ 'disabled': !has('python'),
-      \ }
-NeoBundle 'honza/vim-snippets', {
-      \ 'disabled': !has('python'),
-      \ }
 
 NeoBundle 'Shougo/vimproc.vim', {
       \ 'build': {
@@ -57,7 +51,7 @@ NeoBundle 'Shougo/vimproc.vim', {
 NeoBundle 'Valloric/YouCompleteMe', {
       \ 'vim_version': '7.3.584',
       \ 'disabled': !has('python'),
-      \ 'stay_same': 1
+      \ 'stay_same': 1,
       \ }
 
 " C/C++
@@ -409,11 +403,6 @@ let g:syntastic_cpp_compiler_options = '-std=c++11'
 let g:syntastic_cpp_include_dirs = ['../include', 'include', '../common']
 let g:syntastic_tex_chktex_args = '-n29'
 let g:syntastic_always_populate_loc_list = 1
-
-" ==== UltiSnips ====
-let g:UltiSnipsExpandTrigger="<C-j>"
-let g:UltiSnipsJumpForwardTrigger="<C-b>"
-let g:UltiSnipsJumpBackwardTrigger="<C-z>"
 
 " ==== Unite ====
 " Options
