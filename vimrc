@@ -33,6 +33,7 @@ NeoBundle 'tpope/vim-commentary'
 NeoBundle 'tpope/vim-eunuch'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-repeat'
+NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'tpope/vim-vinegar'
 NeoBundle 'xolox/vim-easytags', {'external_commands': 'ctags'}
@@ -334,6 +335,7 @@ nnoremap <silent> <leader>n :nohlsearch<cr>
 
 " Opening files by searching
 set wildmenu
+set wildmode=longest:full,full
 set wildignore=*.o,*~,*.pyc,.git\*
 
 " ============================================================================
