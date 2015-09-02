@@ -116,8 +116,8 @@ set matchtime=1 " Bracket matching (.1 s)
 set timeoutlen=500
 set ttimeoutlen=10
 
-" Make ~ work like an operator, like d and y
-set tildeop
+" Disable annoying pattern not found messages
+set shortmess+=c
 
 " Don't increment numbers like they're octal
 set nrformats=hex
@@ -205,10 +205,15 @@ if exists('&colorcolumn')
 endif
 
 " Fonts
-if g:os == "Linux"
-  set guifont=Inconsolata\ Medium\ 12
-elseif g:os == "Darwin"
-  set guifont=Inconsolata\ for\ Powerline:h14,Monaco:h14
+if has('guirunning')
+  if g:os == "Linux"
+    set guifont=Inconsolata\ Medium\ 12
+  elseif g:os == "Darwin"
+    set guifont=Inconsolata\ for\ Powerline:h14,Monaco:h14
+  endif
+  if filereadable('~/.gvimrc')
+    source ~/.gvimrc
+  endif
 endif
 
 " Redraw screen
