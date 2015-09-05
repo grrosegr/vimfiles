@@ -74,6 +74,10 @@ NeoBundleLazy 'bitc/vim-hdevtools', {
       \ 'autoload': {'filetypes': ['haskell']},
       \ 'external_commands': 'hdevtools',
       \ }
+NeoBundleLazy 'eagletmt/ghcmod-vim', {
+      \ 'autoload': {'filetypes': ['haskell']},
+      \ 'external_commands': 'ghc-mod'
+      \ }
 NeoBundleLazy 'eagletmt/neco-ghc', {
       \ 'autoload': {'filetypes': ['haskell']},
       \ 'external_commands': 'ghc-mod'
