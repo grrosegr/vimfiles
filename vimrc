@@ -379,6 +379,15 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 
 " ==== EasyTags ====
 let g:easytags_async = 1
+let g:easytags_languages = {
+      \ 'haskell': {
+      \   'cmd': 'hasktags --ignore-close-implementation --ctags .',
+      \   'args': [],
+      \   'fileoutput_opt': '-f',
+      \   'stdout_opt': '-f-',
+      \   'recurse_flag': '-R',
+      \   },
+      \ }
 
 " ==== FSwitch ====
 nnoremap <leader>fs :FSHere<cr>
