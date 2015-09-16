@@ -31,18 +31,22 @@ let g:LatexBox_quickfix = 2
 let g:LatexBox_Folding = 1
 
 if g:os == "Linux"
-  let g:LatexBox_viewer = "okular"
-  function! LatexOkularSearch()
+  let g:LatexBox_viewer = "zathura"
+  function! LatexZathuraSearch()
     let s:syncfile = LatexBox_GetOutputFile()
-    let execstr = "silent !okular --unique --noraise " .
-          \ s:syncfile .
-          \ "\\#src:" .
+    let execstr = "silent !zathura --synctex-forward " .
           \ line(".") .
-          \ expand("%\:p") .
-          \ ' &'
+          \ ":" .
+          \ col(".") .
+          \ ":" .
+          \ expand('%:p') .
+          \ " " .
+          \ s:syncfile .
+          \ " &"
     exec execstr
+    redraw!
   endfun
-  nnoremap <silent><buffer> <LocalLeader>ls :call LatexOkularSearch()<cr>
+  nnoremap <silent><buffer> <LocalLeader>ls :call LatexZathuraSearch()<cr>
 elseif g:os == "Darwin"
   let g:LatexBox_viewer = "open -a Skim"
   nnoremap <silent><buffer> <LocalLeader>ls :silent

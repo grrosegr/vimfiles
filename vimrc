@@ -212,7 +212,7 @@ endif
 " Fonts
 if has('guirunning')
   if g:os == "Linux"
-    set guifont=Inconsolata\ Medium\ 12
+    set guifont=Inconsolata\ for\ Powerline\ 11
   elseif g:os == "Darwin"
     set guifont=Inconsolata\ for\ Powerline:h14,Monaco:h14
   endif
@@ -381,7 +381,7 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:easytags_async = 1
 let g:easytags_languages = {
       \ 'haskell': {
-      \   'cmd': 'hasktags --ignore-close-implementation --ctags .',
+      \   'cmd': 'hasktags --ctags .',
       \   'args': [],
       \   'fileoutput_opt': '-f',
       \   'stdout_opt': '-f-',
