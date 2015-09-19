@@ -1,1 +1,1 @@
-au BufNewFile,BufRead *.y filetype=happy
+au BufNewFile,BufRead *.y set filetype=happy
