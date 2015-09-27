@@ -454,7 +454,7 @@ call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
       \ '\.git/',
       \ ], '\|'))
 " Bindings
-nnoremap <C-p> :<C-u>Unite -buffer-name=files -start-insert buffer file_rec/async:!<cr>
+nnoremap <C-p> :<C-u>Unite -buffer-name=files -start-insert buffer file_rec/async:.<cr>
 nnoremap <leader>/ :<C-u>Unite -start-insert grep:.<cr>
 nnoremap <leader>b :<C-u>Unite -start-insert buffer<cr>
 nnoremap <leader>y :<C-u>Unite -buffer-name=yank history/yank<cr>
