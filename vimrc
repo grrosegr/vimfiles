@@ -452,6 +452,8 @@ endif
 call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
       \ 'ignore_pattern', join([
       \ '\.git/',
+      \ '\.cabal-sandbox/',
+      \ 'dist/',
       \ ], '\|'))
 " Bindings
 nnoremap <C-p> :<C-u>Unite -buffer-name=files -start-insert buffer file_rec/async:.<cr>
