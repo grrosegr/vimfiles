@@ -36,8 +36,26 @@ let g:LatexBox_ignore_warnings = [
       \ 'specifier changed to'
       \ ]
 
+" ==== vimtex ====
+let g:vimtex_fold_enabled = 1
+let g:LatexBox_ignore_warnings = [
+      \ 'Underfull',
+      \ 'Overfull',
+      \ 'Vertical rules in tables',
+      \ 'specifier changed to'
+      \ ]
+if !exists('g:ycm_semantic_triggers')
+  let g:ycm_semantic_triggers = {}
+endif
+let g:ycm_semantic_triggers.tex = [
+      \ 're!\\[A-Za-z]*(ref|cite)[A-Za-z]*([^]]*])?{([^}]*,?)*',
+      \ 're!\\includegraphics([^]]*])?{[^}]*',
+      \ 're!\\(include|input){[^}]*'
+      \ ]
+
 if g:os == "Linux"
   let g:LatexBox_viewer = "zathura"
+  let g:vimtex_viewer_zathura = 1
   function! LatexZathuraSearch()
     let s:syncfile = LatexBox_GetOutputFile()
     let execstr = "silent !zathura --synctex-forward " .
@@ -55,6 +73,8 @@ if g:os == "Linux"
   nnoremap <silent><buffer> <LocalLeader>ls :call LatexZathuraSearch()<cr>
 elseif g:os == "Darwin"
   let g:LatexBox_viewer = "open -a Skim"
+  let g:vimtex_view_general_viewer = "/Applications/Skim.app/Contents/SharedSupport/displayline"
+  let g:vimtex_view_general_options = "@line @pdf @tex"
   nnoremap <silent><buffer> <LocalLeader>ls :silent
         \ !/Applications/Skim.app/Contents/SharedSupport/displayline -g
         \ <C-R>=line('.')<CR> "<C-R>=LatexBox_GetOutputFile()<CR>"
