@@ -29,6 +29,12 @@ let g:LatexBox_latexmk_options = "-pdflatex='pdflatex --shell-escape -synctex=1 
 let g:LatexBox_output_type = "pdf"
 let g:LatexBox_quickfix = 2
 let g:LatexBox_Folding = 1
+let g:LatexBox_ignore_warnings = [
+      \ 'Underfull',
+      \ 'Overfull',
+      \ 'Vertical rules in tables',
+      \ 'specifier changed to'
+      \ ]
 
 if g:os == "Linux"
   let g:LatexBox_viewer = "zathura"
