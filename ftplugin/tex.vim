@@ -7,10 +7,10 @@ setlocal spell spelllang=en_us
 
 " ==== TeX specific mappings ====
 imap <buffer> [[ \begin{
-imap <buffer> ]] <Plug>LatexCloseCurEnv
-nmap <buffer> <F5> <Plug>LatexChangeEnv
-vmap <buffer> <F7> <Plug>LatexWrapSelection
-vmap <buffer> <S-F7> <Plug>LatexEnvWrapSelection
+" imap <buffer> ]] <Plug>LatexCloseCurEnv
+" nmap <buffer> <F5> <Plug>LatexChangeEnv
+" vmap <buffer> <F7> <Plug>LatexWrapSelection
+" vmap <buffer> <S-F7> <Plug>LatexEnvWrapSelection
 
 " ==== Rich text mappings ====
 imap <buffer> <C-b> \textbf{
@@ -38,12 +38,23 @@ let g:LatexBox_ignore_warnings = [
 
 " ==== vimtex ====
 let g:vimtex_fold_enabled = 1
-let g:LatexBox_ignore_warnings = [
+let g:vimtex_fold_manual = 1
+let g:vimtex_fold_sections = [
+			\ 'part',
+			\ 'chapter',
+			\ 'section',
+			\ 'subsection',
+			\ 'subsubsection',
+			\ 'question',
+			\ ]
+let g:vimtex_quickfix_ignored_warnings = [
       \ 'Underfull',
       \ 'Overfull',
       \ 'Vertical rules in tables',
-      \ 'specifier changed to'
+      \ 'specifier changed to',
+      \ 'LaTeX Font Warning',
       \ ]
+
 if !exists('g:ycm_semantic_triggers')
   let g:ycm_semantic_triggers = {}
 endif
