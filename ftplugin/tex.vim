@@ -7,10 +7,10 @@ setlocal spell spelllang=en_us
 
 " ==== TeX specific mappings ====
 imap <buffer> [[ \begin{
-imap <buffer> ]] <Plug>LatexCloseCurEnv
-nmap <buffer> <F5> <Plug>LatexChangeEnv
-vmap <buffer> <F7> <Plug>LatexWrapSelection
-vmap <buffer> <S-F7> <Plug>LatexEnvWrapSelection
+" imap <buffer> ]] <Plug>LatexCloseCurEnv
+" nmap <buffer> <F5> <Plug>LatexChangeEnv
+" vmap <buffer> <F7> <Plug>LatexWrapSelection
+" vmap <buffer> <S-F7> <Plug>LatexEnvWrapSelection
 
 " ==== Rich text mappings ====
 imap <buffer> <C-b> \textbf{
@@ -29,9 +29,44 @@ let g:LatexBox_latexmk_options = "-pdflatex='pdflatex --shell-escape -synctex=1 
 let g:LatexBox_output_type = "pdf"
 let g:LatexBox_quickfix = 2
 let g:LatexBox_Folding = 1
+let g:LatexBox_ignore_warnings = [
+      \ 'Underfull',
+      \ 'Overfull',
+      \ 'Vertical rules in tables',
+      \ 'specifier changed to'
+      \ ]
+
+" ==== vimtex ====
+let g:vimtex_fold_enabled = 1
+let g:vimtex_fold_manual = 1
+let g:vimtex_fold_sections = [
+			\ 'part',
+			\ 'chapter',
+			\ 'section',
+			\ 'subsection',
+			\ 'subsubsection',
+			\ 'question',
+			\ ]
+let g:vimtex_quickfix_ignored_warnings = [
+      \ 'Underfull',
+      \ 'Overfull',
+      \ 'Vertical rules in tables',
+      \ 'specifier changed to',
+      \ 'LaTeX Font Warning',
+      \ ]
+
+if !exists('g:ycm_semantic_triggers')
+  let g:ycm_semantic_triggers = {}
+endif
+let g:ycm_semantic_triggers.tex = [
+      \ 're!\\[A-Za-z]*(ref|cite)[A-Za-z]*([^]]*])?{([^}]*,?)*',
+      \ 're!\\includegraphics([^]]*])?{[^}]*',
+      \ 're!\\(include|input){[^}]*'
+      \ ]
 
 if g:os == "Linux"
   let g:LatexBox_viewer = "zathura"
+  let g:vimtex_viewer_zathura = 1
   function! LatexZathuraSearch()
     let s:syncfile = LatexBox_GetOutputFile()
     let execstr = "silent !zathura --synctex-forward " .
@@ -49,6 +84,8 @@ if g:os == "Linux"
   nnoremap <silent><buffer> <LocalLeader>ls :call LatexZathuraSearch()<cr>
 elseif g:os == "Darwin"
   let g:LatexBox_viewer = "open -a Skim"
+  let g:vimtex_view_general_viewer = "/Applications/Skim.app/Contents/SharedSupport/displayline"
+  let g:vimtex_view_general_options = "@line @pdf @tex"
   nnoremap <silent><buffer> <LocalLeader>ls :silent
         \ !/Applications/Skim.app/Contents/SharedSupport/displayline -g
         \ <C-R>=line('.')<CR> "<C-R>=LatexBox_GetOutputFile()<CR>"

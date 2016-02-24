@@ -64,7 +64,8 @@ NeoBundleLazy 'justinmk/vim-syntax-extra', {
       \ }
 
 " LaTeX
-NeoBundleLazy 'LaTeX-Box-Team/LaTeX-Box', {'autoload': {'filetypes': ['tex']}}
+" NeoBundleLazy 'LaTeX-Box-Team/LaTeX-Box', {'autoload': {'filetypes': ['tex']}}
+NeoBundleLazy 'lervag/vimtex', {'autoload': {'filetypes': ['tex']}}
 
 " Haskell
 NeoBundle 'andy-morris/alex.vim'
