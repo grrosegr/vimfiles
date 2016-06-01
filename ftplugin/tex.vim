@@ -50,5 +50,5 @@ if g:os == "Linux"
   let g:vimtex_viewer_zathura = 1
 elseif g:os == "Darwin"
   let g:vimtex_view_general_viewer = "/Applications/Skim.app/Contents/SharedSupport/displayline"
-  let g:vimtex_view_general_options = "@line @pdf @tex"
+  let g:vimtex_view_general_options = "-r @line @pdf @tex"
 endif

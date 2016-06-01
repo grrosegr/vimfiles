@@ -37,6 +37,7 @@ NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'tpope/vim-vinegar'
 NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'vim-airline/vim-airline-themes'
+NeoBundle 'wellle/targets.vim'
 NeoBundle 'xolox/vim-easytags', {'external_commands': 'ctags'}
 NeoBundle 'xolox/vim-misc'
 
@@ -381,6 +382,7 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 
 " ==== EasyTags ====
 let g:easytags_async = 1
+let g:easytags_dynamic_files = 1
 let g:easytags_languages = {
       \ 'haskell': {
       \   'cmd': 'hasktags --ctags .',
