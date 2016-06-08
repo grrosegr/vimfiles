@@ -57,6 +57,10 @@ NeoBundle 'Valloric/YouCompleteMe', {
       \ 'stay_same': 1,
       \ }
 
+" Snippets
+NeoBundle 'SirVer/ultisnips'
+NeoBundle 'honza/vim-snippets'
+
 " C/C++
 NeoBundleLazy 'derekwyatt/vim-fswitch', {
       \ 'autoload': {'filetypes': ['c', 'cpp']}
@@ -432,6 +436,11 @@ let g:syntastic_cpp_compiler_options = '-std=c++11'
 let g:syntastic_cpp_include_dirs = ['../include', 'include', '../common']
 let g:syntastic_tex_chktex_args = '-n29'
 let g:syntastic_always_populate_loc_list = 1
+
+" ==== UltiSnips ====
+let g:UltiSnipsExpandTrigger="<c-l>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 " ==== Unite ====
 " Options
