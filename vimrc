@@ -90,6 +90,9 @@ NeoBundleLazy 'eagletmt/neco-ghc', {
 NeoBundleLazy 'hhvm/vim-hack', {'autoload': {'filetypes': ['php']}}
 NeoBundleLazy 'mxw/vim-xhp', {'autoload': {'filetypes': ['php']}}
 
+" Go
+NeoBundleLazy 'fatih/vim-go', {'autoload': {'filetypes': ['o']}}
+
 call neobundle#end()
 
 NeoBundleCheck
@@ -109,8 +112,9 @@ filetype plugin indent on
 " Show multicharacter commands as they are being typed
 set showcmd
 
-" Use the space as a leader
+" Set leaders
 let g:mapleader = " "
+let g:maplocalleader = "\\"
 
 " Get the current OS
 let g:os = substitute(system('uname -s'), "\n", "", "")
