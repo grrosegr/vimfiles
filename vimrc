@@ -18,8 +18,6 @@ call neobundle#begin(expand('~/.vim/bundle'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'Shougo/unite.vim'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'justinmk/vim-sneak'
@@ -40,6 +38,12 @@ NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'wellle/targets.vim'
 NeoBundle 'xolox/vim-easytags', {'external_commands': 'ctags'}
 NeoBundle 'xolox/vim-misc'
+
+NeoBundle 'junegunn/fzf', {
+      \ 'dir': '~/.fzf',
+      \ 'do': 'yes \| ./install'
+      \ }
+NeoBundle 'junegunn/fzf.vim'
 
 NeoBundle 'Shougo/vimproc.vim', {
       \ 'build': {
@@ -402,12 +406,21 @@ let g:easytags_languages = {
       \ }
 
 " ==== FSwitch ====
-nnoremap <leader>fs :FSHere<cr>
+nnoremap <leader>F :FSHere<cr>
+
+" ==== fzf ====
+nnoremap <silent> <C-p> :<C-u>Files<cr>
+nnoremap <silent> <leader>f :<C-u>Files<cr>
+nnoremap <silent> <leader>/ :<C-u>Ag<cr>
+nnoremap <silent> <leader>g :<C-u>GFiles<cr>
+nnoremap <silent> <leader>b :<C-u>Buffers<cr>
+nnoremap <silent> <leader>t :<C-u>Tags<cr>
+nnoremap <silent> <leader>l :<C-u>Lines<cr>
 
 " ==== NERDTree ====
 let NERDTreeQuitOnOpen = 1
-nnoremap <leader>t :NERDTreeToggle<cr>
-nnoremap <leader>e :edit .<cr>
+nnoremap <leader>T :NERDTreeToggle<cr>
+nnoremap <leader>E :edit .<cr>
 
 " ==== Sneak ====
 let g:sneak#streak = 1
@@ -441,40 +454,6 @@ let g:syntastic_always_populate_loc_list = 1
 let g:UltiSnipsExpandTrigger="<c-l>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-
-" ==== Unite ====
-" Options
-let g:unite_enable_start_insert = 1
-let g:unite_split_rule = "botright"
-let g:unite_force_overwrite_statusline = 0
-let g:unite_winheight = 10
-let g:unite_source_history_yank_enable = 1
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-call unite#filters#sorter_default#use(['sorter_rank'])
-autocmd FileType unite call s:unite_settings()
-function! s:unite_settings()
-  let b:SuperTabDisabled=1
-  imap <buffer> <C-j> <Plug>(unite_select_next_line)
-  imap <buffer> <C-k> <Plug>(unite_select_previous_line)
-  imap <silent><buffer><expr> <C-x> unite#do_action('split')
-  imap <silent><buffer><expr> <C-v> unite#do_action('vsplit')
-  imap <silent><buffer><expr> <C-t> unite#do_action('tabopen')
-  nmap <buffer> <esc> <Plug>(unite_exit)
-endfunction
-if executable('ag')
-  let g:unite_source_rec_async_command='ag --nocolor --nogroup -g ""'
-  let g:unite_source_grep_command='ag'
-  let g:unite_source_grep_default_opts='--line-numbers --nocolor --nogroup --smart-case'
-endif
-call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
-      \ 'ignore_pattern', join([
-      \ '\.git/',
-      \ ], '\|'))
-" Bindings
-nnoremap <C-p> :<C-u>Unite -buffer-name=files -start-insert buffer file_rec/async:.<cr>
-nnoremap <leader>/ :<C-u>Unite -start-insert grep:.<cr>
-nnoremap <leader>b :<C-u>Unite -start-insert buffer<cr>
-nnoremap <leader>y :<C-u>Unite -buffer-name=yank history/yank<cr>
 
 " ==== YouCompleteMe ====
 let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
