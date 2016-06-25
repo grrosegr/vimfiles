@@ -140,7 +140,7 @@ set ttimeoutlen=10
 set shortmess+=c
 
 " Don't increment numbers like they're octal
-set nrformats=hex
+set nrformats-=octal
 
 " Use F12 as a paste toggle
 set pastetoggle=<F12>
@@ -208,11 +208,20 @@ if exists('&relativenumber')
   set relativenumber
 endif
 
+" Store relative line number jumps in the jumplist.
+nnoremap <expr> j v:count > 1 ? 'm`' . v:count . 'j' : 'gj'
+nnoremap <expr> k v:count > 1 ? 'm`' . v:count . 'k' : 'gk'
+
 " ============================================================================
 " Appearance
 " ============================================================================
 
 " Colors
+if has('termguicolors')
+  set termguicolors
+  set t_8f=[38;2;%lu;%lu;%lum
+  set t_8b=[48;2;%lu;%lu;%lum
+endif
 colorscheme avp
 set background=dark
 set t_Co=256
@@ -357,6 +366,9 @@ set magic
 
 " Use <leader>n to clear out the highlighting from the search.
 nnoremap <silent> <leader>n :nohlsearch<cr>
+
+" Don't jump to next match on *
+nnoremap * :keepjumps normal! mi*`i<CR>
 
 " Opening files by searching
 set wildmenu
