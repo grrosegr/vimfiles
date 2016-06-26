@@ -6,104 +6,70 @@ set encoding=utf-8
 scriptencoding utf-8
 
 " ============================================================================
-" NeoBundle
+" Plugin setup
 " ============================================================================
 
-if has('vim_starting')
-  set nocompatible
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
+call plug#begin(expand('~/.vim/bundle'))
+
+Plug 'Shougo/vimproc.vim', {'build': 'make'}
+Plug 'airblade/vim-gitgutter'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'justinmk/vim-sneak'
+Plug 'mhinz/vim-startify'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/syntastic'
+Plug 'sjl/splice.vim'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-vinegar'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'wellle/targets.vim'
+
+if executable('ctags')
+  Plug 'xolox/vim-easytags'
+  Plug 'xolox/vim-misc'
 endif
 
-call neobundle#begin(expand('~/.vim/bundle'))
-
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'christoomey/vim-tmux-navigator'
-NeoBundle 'justinmk/vim-sneak'
-NeoBundle 'mhinz/vim-startify'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'sjl/splice.vim'
-NeoBundle 'tpope/vim-abolish'
-NeoBundle 'tpope/vim-commentary'
-NeoBundle 'tpope/vim-eunuch'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'tpope/vim-repeat'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'tpope/vim-unimpaired'
-NeoBundle 'tpope/vim-vinegar'
-NeoBundle 'vim-airline/vim-airline'
-NeoBundle 'vim-airline/vim-airline-themes'
-NeoBundle 'wellle/targets.vim'
-NeoBundle 'xolox/vim-easytags', {'external_commands': 'ctags'}
-NeoBundle 'xolox/vim-misc'
-
-NeoBundle 'junegunn/fzf', {
+Plug 'junegunn/fzf', {
       \ 'dir': '~/.fzf',
       \ 'do': 'yes \| ./install'
       \ }
-NeoBundle 'junegunn/fzf.vim'
+Plug 'junegunn/fzf.vim'
 
-NeoBundle 'Shougo/vimproc.vim', {
-      \ 'build': {
-      \     'windows': 'tools\\update-dll-mingw',
-      \     'cygwin': 'make -f make_cygwin.mak',
-      \     'mac': 'make -f make_mac.mak',
-      \     'linux': 'make',
-      \     'unix': 'gmake',
-      \    },
-      \ }
-
-NeoBundle 'Valloric/YouCompleteMe', {
-      \ 'vim_version': '7.3.584',
-      \ 'disabled': !has('python'),
-      \ 'stay_same': 1,
-      \ }
+Plug 'Valloric/YouCompleteMe'
 
 " Snippets
-NeoBundle 'SirVer/ultisnips'
-NeoBundle 'honza/vim-snippets'
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
 " C/C++
-NeoBundleLazy 'derekwyatt/vim-fswitch', {
-      \ 'autoload': {'filetypes': ['c', 'cpp']}
-      \ }
-NeoBundleLazy 'justinmk/vim-syntax-extra', {
-      \ 'autoload': {'filetypes': ['c', 'cpp']}
-      \ }
+Plug 'derekwyatt/vim-fswitch', {'for': ['c', 'cpp']}
+Plug 'justinmk/vim-syntax-extra', {'for': ['c', 'cpp']}
 
 " LaTeX
-" NeoBundleLazy 'LaTeX-Box-Team/LaTeX-Box', {'autoload': {'filetypes': ['tex']}}
-NeoBundleLazy 'lervag/vimtex', {'autoload': {'filetypes': ['tex']}}
+Plug 'lervag/vimtex', {'for': 'tex'}
 
 " Haskell
-NeoBundle 'andy-morris/alex.vim'
-NeoBundleLazy 'dag/vim2hs', {'autoload': {'filetypes': ['haskell']}}
-NeoBundleLazy 'travitch/hasksyn', {'autoload': {'filetypes': ['haskell']}}
-NeoBundleLazy 'bitc/vim-hdevtools', {
-      \ 'autoload': {'filetypes': ['haskell']},
-      \ 'external_commands': 'hdevtools',
-      \ }
-NeoBundleLazy 'eagletmt/ghcmod-vim', {
-      \ 'autoload': {'filetypes': ['haskell']},
-      \ 'external_commands': 'ghc-mod'
-      \ }
-NeoBundleLazy 'eagletmt/neco-ghc', {
-      \ 'autoload': {'filetypes': ['haskell']},
-      \ 'external_commands': 'ghc-mod'
-      \ }
+Plug 'andy-morris/alex.vim'
+Plug 'dag/vim2hs', {'for': 'haskell'}
+Plug 'travitch/hasksyn', {'for': 'haskell'}
+Plug 'bitc/vim-hdevtools', {'for': 'haskell'}
+Plug 'eagletmt/ghcmod-vim', {'for': 'haskell'}
+Plug 'eagletmt/neco-ghc', {'for': 'haskell'}
 
 " PHP
-NeoBundleLazy 'hhvm/vim-hack', {'autoload': {'filetypes': ['php']}}
-NeoBundleLazy 'mxw/vim-xhp', {'autoload': {'filetypes': ['php']}}
+Plug 'hhvm/vim-hack', {'for': 'php'}
+Plug 'mxw/vim-xhp', {'for': 'php'}
 
 " Go
-NeoBundleLazy 'fatih/vim-go', {'autoload': {'filetypes': ['o']}}
+Plug 'fatih/vim-go', {'for': 'go'}
 
-call neobundle#end()
-
-NeoBundleCheck
+call plug#end()
 
 " ============================================================================
 " General Settings
@@ -121,7 +87,7 @@ filetype plugin indent on
 set showcmd
 
 " Set leaders
-let g:mapleader = " "
+let g:mapleader = "\<space>"
 let g:maplocalleader = "\\"
 
 " Get the current OS
@@ -159,9 +125,6 @@ set ttyfast
 
 " Show title
 set title
-
-" Better encryption
-set cryptmethod=blowfish
 
 " Use LaTeX instead of TeX
 let g:tex_flavor="latex"
@@ -246,7 +209,7 @@ if has('guirunning')
 endif
 
 " Redraw screen
-nnoremap <leader>r :redraw!<cr>
+nnoremap <silent> <leader>r :redraw!<cr>
 
 " ============================================================================
 " Trailing whitespace
@@ -351,6 +314,10 @@ nnoremap <C-l> <C-w>l
 
 set splitbelow
 set splitright
+
+if has('nvim')
+  nnoremap <bs> :<C-u>TmuxNavigateLeft<cr>
+endif
 
 " ============================================================================
 " Searching
