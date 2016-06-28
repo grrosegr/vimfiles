@@ -4,10 +4,10 @@
 
 *.py[cod]
 
-bundle/*
-!bundle/neobundle.vim
+bundle/
 
 .neobundle/
 .cache/
 spell/
 session/
+undo/

@@ -16,4 +16,4 @@ cd "$HOME/.config"
 ln -i -s "$VIMDIR" "$HOME/.config/nvim"
 
 cd "$VIMDIR"
-git submodule update --init
+mkdir -p "undo"

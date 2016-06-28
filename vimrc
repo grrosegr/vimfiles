@@ -95,7 +95,6 @@ let g:os = substitute(system('uname -s'), "\n", "", "")
 
 " Set how many lines of history to remember
 set history=700
-set undolevels=1000
 
 " Timeout lengths
 set matchtime=1 " Bracket matching (.1 s)
@@ -242,6 +241,15 @@ set hidden
 " Remap left and right to switch between buffers.
 nnoremap <silent> <right> :bn<cr>
 nnoremap <silent> <left> :bp<cr>
+
+" ============================================================================
+" Undo files
+" ============================================================================
+
+set undofile
+set undodir=$HOME/.vim/undo
+set undolevels=1000
+set undoreload=10000
 
 " ============================================================================
 " Tags
