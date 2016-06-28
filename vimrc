@@ -99,13 +99,17 @@ set history=700
 " Timeout lengths
 set matchtime=1 " Bracket matching (.1 s)
 set timeoutlen=500
-set ttimeoutlen=10
+set ttimeout
+set ttimeoutlen=100
 
 " Disable annoying pattern not found messages
 set shortmess+=c
 
 " Don't increment numbers like they're octal
 set nrformats-=octal
+
+" Delete comment character when joining commented lines
+set formatoptions+=j
 
 " Use F12 as a paste toggle
 set pastetoggle=<F12>
@@ -157,6 +161,9 @@ nnoremap <silent> <leader>cd :lcd %:p:h<cr>
 
 " Evaluate selection
 vmap <silent> <leader>e c<C-r>=<C-r>"<CR><ESC>
+
+" Allow clearing line in insert mode
+inoremap <C-u> <C-g>u<C-u>
 
 " ============================================================================
 " Line Numbers
