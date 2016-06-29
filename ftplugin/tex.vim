@@ -1,5 +1,5 @@
 " ==== General ====
-setlocal colorcolumn=120
+setlocal colorcolumn=121
 setlocal wrap
 setlocal linebreak
 setlocal nolist

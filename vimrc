@@ -178,8 +178,8 @@ if exists('&relativenumber')
 endif
 
 " Store relative line number jumps in the jumplist.
-nnoremap <expr> j v:count > 1 ? 'm`' . v:count . 'j' : 'gj'
-nnoremap <expr> k v:count > 1 ? 'm`' . v:count . 'k' : 'gk'
+nnoremap <expr> k (v:count > 1 ? "m'" . v:count : '') . 'k'
+nnoremap <expr> j (v:count > 1 ? "m'" . v:count : '') . 'j'
 
 " ============================================================================
 " Appearance
@@ -198,7 +198,7 @@ set fillchars+=vert:│
 
 " 80/100 character line guide
 if exists('&colorcolumn')
-  set colorcolumn=80,100
+  set colorcolumn=81,101
   hi ColorColumn ctermbg=darkgray guibg=#444444
 endif
 
