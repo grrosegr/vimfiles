@@ -11,13 +11,13 @@ scriptencoding utf-8
 
 call plug#begin(expand('~/.vim/bundle'))
 
-Plug 'Shougo/vimproc.vim', {'build': 'make'}
+Plug 'Shougo/vimproc.vim', {'do': 'make'}
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'justinmk/vim-sneak'
 Plug 'mhinz/vim-startify'
+Plug 'neomake/neomake'
 Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/syntastic'
 Plug 'sjl/splice.vim'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
@@ -410,6 +410,9 @@ nnoremap <silent> <leader>g :<C-u>GFiles<cr>
 nnoremap <silent> <leader>b :<C-u>Buffers<cr>
 nnoremap <silent> <leader>t :<C-u>Tags<cr>
 nnoremap <silent> <leader>l :<C-u>Lines<cr>
+
+" ==== Neomake ====
+autocmd! BufWritePost * Neomake
 
 " ==== NERDTree ====
 let NERDTreeQuitOnOpen = 1
