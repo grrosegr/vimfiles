@@ -315,8 +315,8 @@ set scrolloff=3
 set sidescrolloff=5
 
 " Set long lines to be treated as multiple lines when soft wrapped
-nnoremap j gj
-nnoremap k gk
+nnoremap <silent> j gj
+nnoremap <silent> k gk
 
 " ============================================================================
 " Windows
