@@ -249,6 +249,9 @@ set hidden
 nnoremap <silent> <right> :bn<cr>
 nnoremap <silent> <left> :bp<cr>
 
+" Remap backspace to switch to previous buffer
+nnoremap <silent> <BS> <C-^>
+
 " ============================================================================
 " Undo files
 " ============================================================================
