@@ -42,7 +42,8 @@ Plug 'junegunn/fzf', {
       \ }
 Plug 'junegunn/fzf.vim'
 
-Plug 'Valloric/YouCompleteMe'
+Plug 'Shougo/deoplete.nvim', has('nvim') ? {'do':':UpdateRemotePlugins'} : {'on':[]}
+Plug 'Valloric/YouCompleteMe', has('nvim') ? {'on':[]} : {}
 
 " Snippets
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
@@ -388,6 +389,12 @@ let g:airline_theme = 'avp'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ''
 let g:airline#extensions#tabline#left_alt_sep = '|'
+
+" ==== Deoplete ====
+if has('nvim')
+  let g:deoplete#enable_at_startup = 1
+  inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+endif
 
 " ==== EasyTags ====
 let g:easytags_async = 1
