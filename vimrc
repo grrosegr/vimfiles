@@ -19,8 +19,6 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'wellle/targets.vim'
 
 if executable('ctags')
@@ -352,12 +350,60 @@ set wildmode=longest:full,full
 set wildignore=*.o,*~,*.pyc,.git\*
 
 " ============================================================================
-" Status bar
+" Status Line
 " ============================================================================
 
 set ruler
 set noshowmode
 set cmdheight=1
+
+" Keep track of the active window
+au VimEnter,WinEnter,WinLeave * let g:activeWindow=winnr()
+
+" User colors
+function! SetStatusLineModeColor(mode, winnr)
+  if winnr() != g:activeWindow
+    return ''
+  endif
+
+  let result = a:mode
+  if a:mode == 'n'
+    hi SLMode guifg=#00df87 guibg=#005f00 ctermfg=48 ctermbg=22
+    let result = 'N'
+  elseif a:mode ==# 'R'
+    hi SLMode guifg=#ff0000 guibg=#870000 ctermfg=197 ctermbg=88
+    let result = 'R'
+  elseif a:mode == 'i'
+    hi SLMode guifg=#00d7ff guibg=#0000d7 ctermfg=45 ctermbg=20
+    let result = 'I'
+  elseif a:mode ==? 'v' || a:mode ==? '^V'
+    hi SLMode guifg=#ff8700 guibg=#875f00 ctermfg=208 ctermbg=94
+    let result = 'V'
+  endif
+
+  if &paste
+    let result .= ' ⎘'
+  endif
+  return '  ' . result . ' '
+endfunction
+
+hi SLWarning guifg=#ff8700 guibg=#202020 ctermfg=208 ctermbg=235
+
+set statusline=
+set statusline+=%<
+set statusline+=%#SLMode#%{SetStatusLineModeColor(mode(),winnr())}%*
+set statusline+=\ %t%m%r
+
+set statusline+=%=
+
+set statusline+=%y
+
+set statusline+=\ %l:%v
+set statusline+=\ %P
+
+set statusline+=\ %#SLWarning#
+set statusline+=%{neomake#statusline#LoclistStatus()}
+set statusline+=%*
 
 " ============================================================================
 " Disable bells
@@ -370,15 +416,6 @@ set t_vb=
 " ============================================================================
 " Plugins
 " ============================================================================
-
-" ==== Airline ====
-" Always show status line correctly
-set laststatus=2
-let g:airline_powerline_fonts = 1
-let g:airline_theme = 'avp'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ''
-let g:airline#extensions#tabline#left_alt_sep = '|'
 
 " ==== Deoplete ====
 if has('nvim')
