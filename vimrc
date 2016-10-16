@@ -1,11 +1,4 @@
 " ============================================================================
-" UTF Encoding
-" ============================================================================
-
-set encoding=utf-8
-scriptencoding utf-8
-
-" ============================================================================
 " Plugin setup
 " ============================================================================
 
@@ -18,7 +11,6 @@ Plug 'justinmk/vim-sneak'
 Plug 'mhinz/vim-startify'
 Plug 'neomake/neomake'
 Plug 'scrooloose/nerdtree'
-Plug 'sjl/splice.vim'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
@@ -36,12 +28,14 @@ if executable('ctags')
   Plug 'xolox/vim-misc'
 endif
 
+" Fuzzy finding
 Plug 'junegunn/fzf', {
       \ 'dir': '~/.fzf',
       \ 'do': 'yes \| ./install'
       \ }
 Plug 'junegunn/fzf.vim'
 
+" Completion
 Plug 'Shougo/deoplete.nvim', has('nvim') ? {'do':':UpdateRemotePlugins'} : {'on':[]}
 Plug 'Valloric/YouCompleteMe', has('nvim') ? {'on':[]} : {}
 
@@ -334,10 +328,6 @@ nnoremap <C-l> <C-w>l
 set splitbelow
 set splitright
 
-if has('nvim')
-  nnoremap <bs> :<C-u>TmuxNavigateLeft<cr>
-endif
-
 " ============================================================================
 " Searching
 " ============================================================================
@@ -417,12 +407,14 @@ nnoremap <silent> <C-p> :<C-u>Files<cr>
 nnoremap <silent> <leader>f :<C-u>Files<cr>
 nnoremap <silent> <leader>/ :<C-u>Ag<cr>
 nnoremap <silent> <leader>g :<C-u>GFiles<cr>
+nnoremap <silent> <leader>G :<C-u>GFiles?<cr>
 nnoremap <silent> <leader>b :<C-u>Buffers<cr>
 nnoremap <silent> <leader>t :<C-u>Tags<cr>
 nnoremap <silent> <leader>l :<C-u>Lines<cr>
 
 " ==== Neomake ====
 autocmd! BufWritePost * Neomake
+let g:neomake_python_enabled_makers = ['pyflakes']
 
 " ==== NERDTree ====
 let NERDTreeQuitOnOpen = 1
