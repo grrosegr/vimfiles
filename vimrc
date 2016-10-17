@@ -346,7 +346,7 @@ nnoremap * :keepjumps normal! mi*`i<CR>
 
 " Opening files by searching
 set wildmenu
-set wildmode=longest:full,full
+set wildmode=longest,full
 set wildignore=*.o,*~,*.pyc,.git\*
 
 " ============================================================================
@@ -368,16 +368,16 @@ function! SetStatusLineModeColor(mode, winnr)
 
   let result = a:mode
   if a:mode == 'n'
-    hi SLMode guifg=#00df87 guibg=#005f00 ctermfg=48 ctermbg=22
+    hi SLMode guifg=#00ff00 guibg=#005000 ctermfg=46 ctermbg=22
     let result = 'N'
   elseif a:mode ==# 'R'
-    hi SLMode guifg=#ff0000 guibg=#870000 ctermfg=197 ctermbg=88
+    hi SLMode guifg=#ffafaf guibg=#800000 ctermfg=197 ctermbg=88
     let result = 'R'
   elseif a:mode == 'i'
     hi SLMode guifg=#00d7ff guibg=#0000d7 ctermfg=45 ctermbg=20
     let result = 'I'
-  elseif a:mode ==? 'v' || a:mode ==? '^V'
-    hi SLMode guifg=#ff8700 guibg=#875f00 ctermfg=208 ctermbg=94
+  elseif a:mode ==? 'v' || a:mode ==? ''
+    hi SLMode guifg=#ffdf00 guibg=#875f00 ctermfg=220 ctermbg=94
     let result = 'V'
   endif
 
@@ -392,14 +392,12 @@ hi SLWarning guifg=#ff8700 guibg=#202020 ctermfg=208 ctermbg=235
 set statusline=
 set statusline+=%<
 set statusline+=%#SLMode#%{SetStatusLineModeColor(mode(),winnr())}%*
-set statusline+=\ %t%m%r
+set statusline+=\ %f%m%r
 
 set statusline+=%=
 
-set statusline+=%y
-
-set statusline+=\ %l:%v
-set statusline+=\ %P
+set statusline+=\ %l:%c\ %y
+set statusline+=\ \ %P
 
 set statusline+=\ %#SLWarning#
 set statusline+=%{neomake#statusline#LoclistStatus()}

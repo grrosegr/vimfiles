@@ -21,8 +21,12 @@ hi VertSplit guifg=#202020 guibg=#202020 gui=NONE ctermfg=darkgray ctermbg=NONE 
 hi StatusLine guifg=#CCCCCC guibg=#202020 gui=italic ctermfg=white ctermbg=darkgray cterm=NONE
 hi StatusLineNC guifg=black guibg=#202020 gui=NONE ctermfg=blue ctermbg=darkgray cterm=NONE
 
+hi TabLineFill guifg=#202020 guibg=#202020 ctermfg=235 ctermbg=darkgray
+hi TabLine guifg=#00af00 guibg=#333333 ctermfg=34 ctermbg=8
+hi TabLineSel guifg=#00af00 guibg=#080808 ctermfg=34 ctermbg=232
+
 hi Folded guifg=#a0a8b0 guibg=#384048 gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE
-hi Title guifg=#f6f3e8 guibg=NONE gui=bold ctermfg=NONE ctermbg=NONE cterm=NONE
+hi Title guifg=#c6c3c8 guibg=NONE gui=bold ctermfg=NONE ctermbg=NONE cterm=NONE
 hi Visual guifg=NONE guibg=#262D51 gui=NONE ctermfg=NONE ctermbg=NONE cterm=REVERSE
 
 hi SpecialKey guifg=#808080 guibg=#343434 gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE
