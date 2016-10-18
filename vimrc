@@ -390,8 +390,8 @@ endfunction
 hi SLWarning guifg=#ff8700 guibg=#202020 ctermfg=208 ctermbg=235
 
 set statusline=
-set statusline+=%<
 set statusline+=%#SLMode#%{SetStatusLineModeColor(mode(),winnr())}%*
+set statusline+=%<
 set statusline+=\ %f%m%r
 
 set statusline+=%=
