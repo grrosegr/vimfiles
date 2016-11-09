@@ -11,7 +11,6 @@ Plug 'justinmk/vim-sneak'
 Plug 'mhinz/vim-startify'
 Plug 'neomake/neomake'
 Plug 'scrooloose/nerdtree'
-Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
@@ -61,6 +60,12 @@ Plug 'mxw/vim-xhp', {'for': 'php'}
 
 " Go
 Plug 'fatih/vim-go', {'for': 'go'}
+
+" Nim
+Plug 'zah/nim.vim'
+
+" Rust
+Plug 'rust-lang/rust.vim'
 
 call plug#end()
 
@@ -124,6 +129,9 @@ set title
 
 " Use LaTeX instead of TeX
 let g:tex_flavor="latex"
+
+" Rust indentation
+let g:rust_recommended_style = 0
 
 " ============================================================================
 " Utility Keymaps
@@ -356,6 +364,7 @@ set wildignore=*.o,*~,*.pyc,.git\*
 set ruler
 set noshowmode
 set cmdheight=1
+set laststatus=2
 
 " Keep track of the active window
 au VimEnter,WinEnter,WinLeave * let g:activeWindow=winnr()
