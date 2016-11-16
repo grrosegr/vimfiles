@@ -37,7 +37,9 @@ Plug 'Shougo/deoplete.nvim', has('nvim') ? {'do':':UpdateRemotePlugins'} : {'on'
 Plug 'Valloric/YouCompleteMe', has('nvim') ? {'on':[]} : {}
 
 " Snippets
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+if has('python')
+  Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+endif
 
 " C/C++
 Plug 'derekwyatt/vim-fswitch', {'for': ['c', 'cpp']}
