@@ -345,6 +345,9 @@ set incsearch
 set showmatch
 set hlsearch
 set magic
+if exists('&inccommand')
+  set inccommand=split
+endif
 
 " Use <leader>n to clear out the highlighting from the search.
 nnoremap <silent> <leader>n :nohlsearch<cr>
