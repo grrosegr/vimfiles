@@ -46,6 +46,10 @@ endif
 Plug 'derekwyatt/vim-fswitch', {'for': ['c', 'cpp']}
 Plug 'justinmk/vim-syntax-extra', {'for': ['c', 'cpp']}
 
+" JS/JSX
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+
 " LaTeX
 Plug 'lervag/vimtex', {'for': 'tex'}
 
