@@ -18,6 +18,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
+Plug 'vimwiki/vimwiki'
 Plug 'wellle/targets.vim'
 
 if executable('ctags')
@@ -464,6 +465,7 @@ nnoremap <silent> <leader>l :<C-u>Lines<cr>
 " ==== Neomake ====
 autocmd! BufWritePost * Neomake
 let g:neomake_python_enabled_makers = ['pyflakes']
+let g:neomake_verbose = 0
 
 " ==== NERDTree ====
 let NERDTreeQuitOnOpen = 1
@@ -478,7 +480,7 @@ let g:startify_session_persistence = 1
 let g:startify_bookmarks = [
       \ '~/.vimrc',
       \ '~/zshfiles/zshrc',
-      \ '~/zshfiles/avp.zsh'
+      \ '~/zshfiles/avp.zsh',
       \ ]
 let g:startify_custom_header =  [
       \ '     _   ________  ___',
@@ -502,6 +504,12 @@ let g:syntastic_always_populate_loc_list = 1
 let g:UltiSnipsExpandTrigger="<c-l>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+
+" ==== Vimwiki ====
+let g:vimwiki_map_prefix = '<leader>v'
+let g:vimwiki_list = [
+      \ {'path': '$HOME/Dropbox/vimwiki', 'syntax': 'markdown', 'ext': '.md'},
+      \ ]
 
 " ==== YouCompleteMe ====
 let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
