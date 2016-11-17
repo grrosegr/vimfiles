@@ -466,6 +466,9 @@ nnoremap <silent> <leader>b :<C-u>Buffers<cr>
 nnoremap <silent> <leader>t :<C-u>Tags<cr>
 nnoremap <silent> <leader>l :<C-u>Lines<cr>
 
+" ==== jsx ====
+let g:jsx_ext_required = 0
+
 " ==== Neomake ====
 autocmd! BufWritePost * Neomake
 let g:neomake_python_enabled_makers = ['pyflakes']
