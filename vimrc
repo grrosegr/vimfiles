@@ -365,9 +365,6 @@ set wildmenu
 set wildmode=longest,full
 set wildignore=*.o,*~,*.pyc,.git\*
 
-" Completion
-set completeopt+=menu,menuone,noinsert
-
 " ============================================================================
 " Status Line
 " ============================================================================
@@ -469,9 +466,6 @@ nnoremap <silent> <leader>l :<C-u>Lines<cr>
 
 " ==== jsx ====
 let g:jsx_ext_required = 0
-
-" ==== MUcomplete ====
-let g:mucomplete#enable_auto_at_startup = 1
 
 " ==== Neomake ====
 autocmd! BufWritePost * Neomake
