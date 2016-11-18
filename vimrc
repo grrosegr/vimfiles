@@ -34,8 +34,7 @@ Plug 'junegunn/fzf', {
 Plug 'junegunn/fzf.vim'
 
 " Completion
-Plug 'Shougo/deoplete.nvim', has('nvim') ? {'do':':UpdateRemotePlugins'} : {'on':[]}
-Plug 'Valloric/YouCompleteMe', has('nvim') ? {'on':[]} : {}
+Plug 'lifepillar/vim-mucomplete'
 
 " Snippets
 if has('python')
@@ -107,7 +106,7 @@ set ttimeout
 set ttimeoutlen=100
 
 " Disable annoying pattern not found messages
-set shortmess+=c
+silent! set shortmess+=c
 
 " Don't increment numbers like they're octal
 set nrformats-=octal
@@ -366,6 +365,9 @@ set wildmenu
 set wildmode=longest,full
 set wildignore=*.o,*~,*.pyc,.git\*
 
+" Completion
+set completeopt+=menu,menuone,noinsert
+
 " ============================================================================
 " Status Line
 " ============================================================================
@@ -467,6 +469,9 @@ nnoremap <silent> <leader>l :<C-u>Lines<cr>
 
 " ==== jsx ====
 let g:jsx_ext_required = 0
+
+" ==== MUcomplete ====
+let g:mucomplete#enable_auto_at_startup = 1
 
 " ==== Neomake ====
 autocmd! BufWritePost * Neomake
