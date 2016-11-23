@@ -6,6 +6,7 @@ call plug#begin(expand('~/.vim/bundle'))
 
 Plug 'Shougo/vimproc.vim', {'do': 'make'}
 Plug 'airblade/vim-gitgutter'
+Plug 'jlfwong/vim-arcanist'
 Plug 'justinmk/vim-sneak'
 Plug 'mhinz/vim-startify'
 Plug 'neomake/neomake'
@@ -76,6 +77,8 @@ call plug#end()
 " ============================================================================
 " General Settings
 " ============================================================================
+
+set runtimepath+=$ADMIN_SCRIPTS/vim
 
 " Ensure that we are in modern vim mode
 set nocompatible
@@ -363,6 +366,20 @@ nnoremap * :keepjumps normal! mi*`i<CR>
 set wildmenu
 set wildmode=longest,full
 set wildignore=*.o,*~,*.pyc,.git\*
+
+if executable('tbgs')
+  function! s:biggrep(prg, str)
+    let grepcmd = a:prg . " " . a:str
+    let sedcmd = "sed -e \"s/^[^/]\\+\\///\""
+    let cmd = "cgetexpr system('" . grepcmd . " \\| " . sedcmd . "')"
+    execute cmd
+    botright copen
+    wincmd p
+  endfunction
+
+  command! -nargs=1 Tbgs call s:biggrep('tbgs', <q-args>)
+  command! -nargs=1 Fbgs call s:biggrep('fbgs', <q-args>)
+endif
 
 " ============================================================================
 " Status Line
