@@ -21,20 +21,12 @@ Plug 'tpope/vim-vinegar'
 Plug 'vimwiki/vimwiki'
 Plug 'wellle/targets.vim'
 
-if executable('ctags')
-  Plug 'xolox/vim-easytags'
-  Plug 'xolox/vim-misc'
-endif
-
 " Fuzzy finding
 Plug 'junegunn/fzf', {
       \ 'dir': '~/.fzf',
       \ 'do': 'yes \| ./install'
       \ }
 Plug 'junegunn/fzf.vim'
-
-" Completion
-Plug 'lifepillar/vim-mucomplete'
 
 " Snippets
 if has('python')
@@ -44,6 +36,7 @@ endif
 " C/C++
 Plug 'derekwyatt/vim-fswitch', {'for': ['c', 'cpp']}
 Plug 'justinmk/vim-syntax-extra', {'for': ['c', 'cpp']}
+Plug 'rhysd/vim-clang-format', {'for': ['c', 'cpp']}
 
 " JS/JSX
 Plug 'mxw/vim-jsx'
@@ -72,13 +65,16 @@ Plug 'zah/nim.vim'
 " Rust
 Plug 'rust-lang/rust.vim'
 
+" Thrift
+Plug 'solarnz/thrift.vim'
+
 call plug#end()
 
 " ============================================================================
 " General Settings
 " ============================================================================
 
-set runtimepath+=$ADMIN_SCRIPTS/vim
+" set runtimepath+=$ADMIN_SCRIPTS/vim
 
 " Ensure that we are in modern vim mode
 set nocompatible
@@ -374,7 +370,6 @@ if executable('tbgs')
     let cmd = "cgetexpr system('" . grepcmd . " \\| " . sedcmd . "')"
     execute cmd
     botright copen
-    wincmd p
   endfunction
 
   command! -nargs=1 Tbgs call s:biggrep('tbgs', <q-args>)
@@ -487,6 +482,8 @@ let g:jsx_ext_required = 0
 autocmd! BufWritePost * Neomake
 let g:neomake_python_enabled_makers = ['pyflakes']
 let g:neomake_verbose = 0
+let g:neomake_warning_sign={'text': '△', 'texthl': 'NeomakeWarningMsg'}
+let g:neomake_error_sign={'text': '♢', 'texthl': 'NeomakeErrorMsg'}
 
 " ==== NERDTree ====
 let NERDTreeQuitOnOpen = 1

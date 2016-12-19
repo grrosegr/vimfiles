@@ -164,3 +164,7 @@ hi link pythonStatement Statement
 
 " Special for CSharp
 hi link csXmlTag Keyword
+
+" Special for Neomake
+hi NeomakeErrorMsg guifg=#ff0000 guibg=NONE ctermfg=red ctermbg=NONE
+hi NeomakeWarningMsg guifg=#ffff00 guibg=NONE ctermfg=yellow ctermbg=NONE
