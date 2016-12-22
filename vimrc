@@ -6,6 +6,7 @@ call plug#begin(expand('~/.vim/bundle'))
 
 Plug 'Shougo/vimproc.vim', {'do': 'make'}
 Plug 'airblade/vim-gitgutter'
+Plug 'gcmt/taboo.vim'
 Plug 'jlfwong/vim-arcanist'
 Plug 'justinmk/vim-sneak'
 Plug 'mhinz/vim-startify'
@@ -518,6 +519,10 @@ let g:syntastic_cpp_compiler_options = '-std=c++11'
 let g:syntastic_cpp_include_dirs = ['../include', 'include', '../common']
 let g:syntastic_tex_chktex_args = '-n29'
 let g:syntastic_always_populate_loc_list = 1
+
+" ==== Taboo ====
+let g:taboo_tab_format = " %N:%f%m "
+let g:taboo_renamed_tab_format = " %N:[%l]%m "
 
 " ==== UltiSnips ====
 let g:UltiSnipsExpandTrigger="<c-l>"
