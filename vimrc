@@ -495,6 +495,16 @@ nnoremap <leader>E :edit .<cr>
 " ==== Sneak ====
 let g:sneak#streak = 1
 
+" ==== SnipMate ====
+imap <c-j> <Plug>snipMateNextOrTrigger
+smap <c-j> <Plug>snipMateNextOrTrigger
+imap <c-k> <Plug>snipMateBack
+smap <c-k> <Plug>snipMateBack
+imap <c-l> <Plug>snipMateTrigger
+smap <c-l> <Plug>snipMateTrigger
+imap <c-r><c-l> <Plug>snipMateShow
+smap <c-r><c-l> <Plug>snipMateShow
+
 " ==== Startify ====
 let g:startify_session_persistence = 1
 let g:startify_bookmarks = [
@@ -523,11 +533,6 @@ let g:syntastic_always_populate_loc_list = 1
 " ==== Taboo ====
 let g:taboo_tab_format = " %N:%f%m "
 let g:taboo_renamed_tab_format = " %N:[%l]%m "
-
-" ==== UltiSnips ====
-let g:UltiSnipsExpandTrigger="<c-l>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 " ==== Vimwiki ====
 let g:vimwiki_map_prefix = '<leader>v'
