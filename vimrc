@@ -11,7 +11,6 @@ Plug 'jlfwong/vim-arcanist'
 Plug 'justinmk/vim-sneak'
 Plug 'mhinz/vim-startify'
 Plug 'neomake/neomake'
-Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
@@ -31,9 +30,10 @@ Plug 'junegunn/fzf', {
 Plug 'junegunn/fzf.vim'
 
 " Snippets
-if has('python')
-  Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-endif
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'garbas/vim-snipmate'
+Plug 'honza/vim-snippets'
 
 " C/C++
 Plug 'derekwyatt/vim-fswitch', {'for': ['c', 'cpp']}
