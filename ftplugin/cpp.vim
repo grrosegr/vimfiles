@@ -16,7 +16,7 @@ if g:hgroot =~ "fbsource"
 endif
 if g:gitroot =~ "hermes"
   let g:neomake_cpp_clangcheck_args = [
-        \ "-p=/home/avp/hermes/build",
+        \ "-p=".expand("~")."/hermes/build",
         \ '-extra-arg=-I/usr/lib/clang/3.4.2/include'
         \ ]
   let g:neomake_cpp_gcc_args = ["-p", "/home/avp/hermes/build"]
