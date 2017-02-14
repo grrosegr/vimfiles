@@ -446,9 +446,16 @@ set t_vb=
 " ============================================================================
 
 " ==== Deoplete ====
-if has('nvim')
+if has('nvim') && has('python3')
   let g:deoplete#enable_at_startup = 1
-  inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+  inoremap <silent><expr> <TAB>
+        \ pumvisible() ? "\<C-n>" :
+        \ <SID>check_back_space() ? "\<TAB>" :
+        \ deoplete#mappings#manual_complete()
+  function! s:check_back_space() abort "{{{
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~ '\s'
+  endfunction "}}}
 endif
 
 " ==== EasyTags ====
