@@ -21,8 +21,12 @@ hi VertSplit guifg=#202020 guibg=#202020 gui=NONE ctermfg=darkgray ctermbg=NONE 
 hi StatusLine guifg=#CCCCCC guibg=#202020 gui=italic ctermfg=white ctermbg=darkgray cterm=NONE
 hi StatusLineNC guifg=black guibg=#202020 gui=NONE ctermfg=blue ctermbg=darkgray cterm=NONE
 
+hi TabLineFill guifg=#202020 guibg=#101010 ctermfg=235 ctermbg=darkgray
+hi TabLine guifg=#afafaf guibg=#202020 ctermfg=248 ctermbg=235
+hi TabLineSel guifg=#00df00 guibg=#000000 ctermfg=46 ctermbg=16
+
 hi Folded guifg=#a0a8b0 guibg=#384048 gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE
-hi Title guifg=#f6f3e8 guibg=NONE gui=bold ctermfg=NONE ctermbg=NONE cterm=NONE
+hi Title guifg=#c6c3c8 guibg=NONE gui=bold ctermfg=NONE ctermbg=NONE cterm=NONE
 hi Visual guifg=NONE guibg=#262D51 gui=NONE ctermfg=NONE ctermbg=NONE cterm=REVERSE
 
 hi SpecialKey guifg=#808080 guibg=#343434 gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE
@@ -36,12 +40,15 @@ hi ErrorMsg guifg=white guibg=#FF6C60 gui=BOLD ctermfg=white ctermbg=red cterm=N
 hi WarningMsg guifg=white guibg=#FF6C60 gui=BOLD ctermfg=white ctermbg=red cterm=NONE
 hi LongLineWarning guifg=NONE guibg=#371F1C gui=underline ctermfg=NONE ctermbg=NONE cterm=underline
 
+hi SpellBad guifg=#D70000 guibg=NONE gui=undercurl ctermfg=160 ctermbg=NONE cterm=underline guisp=#FF0000
+
 " Message displayed in lower left, such as --INSERT--
 hi ModeMsg guifg=black guibg=#C6C5FE gui=BOLD ctermfg=black ctermbg=cyan cterm=BOLD
 
 if version >= 700 " Vim 7.x specific colors
  hi CursorLine guifg=NONE guibg=#121212 gui=NONE ctermfg=NONE ctermbg=NONE cterm=BOLD
  hi CursorColumn guifg=NONE guibg=#121212 gui=NONE ctermfg=NONE ctermbg=darkgray cterm=BOLD
+ hi ColorColumn guibg=#444444 ctermbg=darkgray
  hi MatchParen guifg=#f6f3e8 guibg=#857b6f gui=BOLD ctermfg=white ctermbg=darkgray cterm=NONE
  hi Pmenu guifg=#f6f3e8 guibg=#444444 gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE
  hi PmenuSel guifg=#000000 guibg=#cae682 gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE
@@ -157,3 +164,7 @@ hi link pythonStatement Statement
 
 " Special for CSharp
 hi link csXmlTag Keyword
+
+" Special for Neomake
+hi NeomakeErrorMsg guifg=#ff0000 guibg=NONE ctermfg=red ctermbg=NONE
+hi NeomakeWarningMsg guifg=#ffff00 guibg=NONE ctermfg=yellow ctermbg=NONE

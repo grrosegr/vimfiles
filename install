@@ -1,12 +1,19 @@
 #!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
+set -v
 
 # Installs this vim configuration in the current user's linux machine.
 
-VIMDIR=$(pwd)
+VIMDIR="$PWD"
 
-cd ..
-ln -i -s $VIMDIR/vimrc .vimrc
+cd "$VIMDIR/.."
+ln -i -s "$VIMDIR/vimrc" ".vimrc"
 
-cd $VIMDIR
-git submodule update --init
+cd "$VIMDIR/.."
+mkdir -p "$HOME/.config"
+cd "$HOME/.config"
+ln -i -s "$VIMDIR" "$HOME/.config/nvim"
 
+cd "$VIMDIR"
+mkdir -p "undo"
