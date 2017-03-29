@@ -11,6 +11,7 @@ Plug 'jlfwong/vim-arcanist'
 Plug 'justinmk/vim-sneak'
 Plug 'mhinz/vim-startify'
 Plug 'neomake/neomake'
+Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
@@ -19,6 +20,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
+Plug 'vim-syntastic/syntastic'
 Plug 'vimwiki/vimwiki'
 Plug 'wellle/targets.vim'
 
@@ -552,3 +554,8 @@ let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
 let g:ycm_extra_conf_globlist = ['~/dev/*','!~/*']
 let g:ycm_register_as_syntastic_checker = 0
 let g:ycm_autoclose_preview_window_after_completion = 1
+
+" ==== Greg Todo List ===
+" nnoremap <C-j> kmaj:m'b<CR>'aj
+nnoremap <C-j> kmAjdd'BP'Ajzz
+
