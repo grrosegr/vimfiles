@@ -35,6 +35,16 @@ Plug 'tomtom/tlib_vim'
 Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
 
+" Completion
+if has('nvim') && has('python3')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+endif
+" Plug 'lifepillar/vim-mucomplete'
+" set completeopt=menu,menuone
+if has('python')
+  " Plug 'Valloric/YouCompleteMe'
+endif
+
 " C/C++
 Plug 'derekwyatt/vim-fswitch', {'for': ['c', 'cpp']}
 Plug 'justinmk/vim-syntax-extra', {'for': ['c', 'cpp']}
