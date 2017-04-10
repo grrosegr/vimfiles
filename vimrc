@@ -6,6 +6,7 @@ call plug#begin(expand('~/.vim/bundle'))
 
 Plug 'Shougo/vimproc.vim', {'do': 'make'}
 Plug 'airblade/vim-gitgutter'
+Plug 'artnez/vim-wipeout'
 Plug 'gcmt/taboo.vim'
 Plug 'jlfwong/vim-arcanist'
 Plug 'christoomey/vim-tmux-navigator'
