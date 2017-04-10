@@ -8,6 +8,8 @@ Plug 'Shougo/vimproc.vim', {'do': 'make'}
 Plug 'airblade/vim-gitgutter'
 Plug 'gcmt/taboo.vim'
 Plug 'jlfwong/vim-arcanist'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'flowtype/vim-flow'
 Plug 'justinmk/vim-sneak'
 Plug 'mhinz/vim-startify'
 Plug 'neomake/neomake'
@@ -149,6 +151,10 @@ nnoremap <leader>w :w<cr>
 nnoremap \w :w<cr>
 nnoremap <leader>W :wall<cr>
 
+" Edit vimrc
+nnoremap <leader>v :e ~/.vimrc<cr>
+nnoremap <leader>k :g/^\n/d<cr>:nohlsearch<cr>gg
+
 " Enable block nav shortcuts when { isn't on the first column
 nmap <silent> [[ ?{<cr>w99[{
 nmap <silent> ][ /}<cr>b99]}
@@ -205,10 +211,10 @@ set t_Co=256
 set fillchars+=vert:│
 
 " 80/100 character line guide
-if exists('&colorcolumn')
-  set colorcolumn=81,101
-  hi ColorColumn ctermbg=darkgray guibg=#444444
-endif
+" if exists('&colorcolumn')
+"   set colorcolumn=81,101
+"   hi ColorColumn ctermbg=darkgray guibg=#444444
+" endif
 
 " Fonts
 if has('guirunning')
@@ -326,8 +332,8 @@ set scrolloff=3
 set sidescrolloff=5
 
 " Set long lines to be treated as multiple lines when soft wrapped
-nnoremap <silent> j gj
-nnoremap <silent> k gk
+" nnoremap <silent> j gj
+" nnoremap <silent> k gk
 
 " ============================================================================
 " Windows
@@ -556,6 +562,10 @@ let g:ycm_register_as_syntastic_checker = 0
 let g:ycm_autoclose_preview_window_after_completion = 1
 
 " ==== Greg Todo List ===
-" nnoremap <C-j> kmaj:m'b<CR>'aj
 nnoremap <C-j> kmAjdd'BP'Ajzz
+
+nmap <F1> :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
+imap <F1> <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
+nmap <F2> :.w !pbcopy<CR><CR>
+vmap <F2> :w !pbcopy<CR><CR>
 
