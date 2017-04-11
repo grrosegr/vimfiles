@@ -38,11 +38,11 @@ Plug 'honza/vim-snippets'
 " Completion
 if has('nvim') && has('python3')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-endif
-" Plug 'lifepillar/vim-mucomplete'
-" set completeopt=menu,menuone
-if has('python')
-  " Plug 'Valloric/YouCompleteMe'
+elseif has('python')
+  Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+else
+  Plug 'lifepillar/vim-mucomplete'
+  set completeopt=menu,menuone
 endif
 
 " C/C++
@@ -560,5 +560,6 @@ let g:vimwiki_list = [
 " ==== YouCompleteMe ====
 let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
 let g:ycm_extra_conf_globlist = ['~/dev/*','!~/*']
+let g:ycm_show_diagnostics_ui = 0
 let g:ycm_register_as_syntastic_checker = 0
 let g:ycm_autoclose_preview_window_after_completion = 1
