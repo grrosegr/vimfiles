@@ -64,6 +64,13 @@ Plug 'eagletmt/neco-ghc', {'for': 'haskell'}
 Plug 'hhvm/vim-hack', {'for': 'php'}
 Plug 'mxw/vim-xhp', {'for': 'php'}
 
+" Python
+Plug 'nvie/vim-flake8'
+let g:flake8_cmd="/usr/local/bin/flake8"
+" autocmd FileType python autocmd BufWritePost <buffer> call Flake8()
+let g:flake8_show_in_gutter=1
+let g:flake8_show_in_file=1
+
 " Go
 Plug 'fatih/vim-go', {'for': 'go'}
 
@@ -213,10 +220,10 @@ set t_Co=256
 set fillchars+=vert:│
 
 " 80/100 character line guide
-" if exists('&colorcolumn')
-"   set colorcolumn=81,101
-"   hi ColorColumn ctermbg=darkgray guibg=#444444
-" endif
+if exists('&colorcolumn')
+  set colorcolumn=81,101
+  hi ColorColumn ctermbg=darkgray guibg=#444444
+endif
 
 " Fonts
 if has('guirunning')
@@ -251,7 +258,7 @@ endfun
 nnoremap <silent> <leader>S :call StripTrailingWhitespace()<cr>
 
 " Delete trailing whitespace on save for select filetypes.
-autocmd FileType c,cpp,java,tex,php,haskell,ruby
+autocmd FileType c,cpp,java,tex,php,haskell,ruby,python
       \ autocmd BufWritePre * :call StripTrailingWhitespace()
 
 " ============================================================================
@@ -303,8 +310,8 @@ set smarttab
 set smartindent
 
 " Python shiftwidth
-autocmd FileType python set shiftwidth=2
-autocmd FileType python set tabstop=2
+autocmd FileType python set shiftwidth=4
+autocmd FileType python set tabstop=4
 
 " ============================================================================
 " Backups
@@ -579,3 +586,11 @@ function! s:DiffWithSaved()
   exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
 endfunction
 com! DiffSaved call s:DiffWithSaved()
+
+" === .cconf is python ===
+" Only set a filetype if the filetype was not detected at all
+" http://vim.wikia.com/wiki/Forcing_Syntax_Coloring_for_files_with_odd_extensions
+augroup filetypedetect
+    au BufRead,BufNewFile *.cconf setfiletype python
+    " associate *.cconf with php filetype
+augroup END
