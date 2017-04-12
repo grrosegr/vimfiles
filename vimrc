@@ -7,10 +7,11 @@ call plug#begin(expand('~/.vim/bundle'))
 Plug 'Shougo/vimproc.vim', {'do': 'make'}
 Plug 'airblade/vim-gitgutter'
 Plug 'artnez/vim-wipeout'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'djoshea/vim-autoread'
+Plug 'flowtype/vim-flow'
 Plug 'gcmt/taboo.vim'
 Plug 'jlfwong/vim-arcanist'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'flowtype/vim-flow'
 Plug 'justinmk/vim-sneak'
 Plug 'mhinz/vim-startify'
 Plug 'neomake/neomake'
@@ -570,3 +571,11 @@ imap <F1> <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
 nmap <F2> :.w !pbcopy<CR><CR>
 vmap <F2> :w !pbcopy<CR><CR>
 
+function! s:DiffWithSaved()
+  let filetype=&ft
+  diffthis
+  vnew | r # | normal! 1Gdd
+  diffthis
+  exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
+endfunction
+com! DiffSaved call s:DiffWithSaved()
