@@ -1,3 +1,4 @@
+
 " ============================================================================
 " Plugin setup
 " ============================================================================
@@ -41,15 +42,16 @@ Plug 'tomtom/tlib_vim'
 Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
 
-" Completion
-if has('nvim') && has('python3')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-elseif has('python')
-  Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
-else
-  Plug 'lifepillar/vim-mucomplete'
-  set completeopt=menu,menuone
-endif
+" TODO: Disabled because broken
+" " Completion
+" if has('nvim') && has('python3')
+  " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" elseif has('python')
+  " Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+" else
+  " Plug 'lifepillar/vim-mucomplete'
+  " set completeopt=menu,menuone
+" endif
 
 " C/C++
 Plug 'derekwyatt/vim-fswitch', {'for': ['c', 'cpp']}
